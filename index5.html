@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Exim India | Global Export-Import Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.441.0/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D4AF37; /* Gold */
+            --dark: #0A0A0A;
+            --accent: #1A1A1A;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-text { color: var(--primary); }
+        .gold-bg { background-color: var(--primary); }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .stat-circle {
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Unique Section: Diagonal Split */
+        .diagonal-section {
+            position: relative;
+            padding: 100px 0;
+            background: var(--accent);
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        }
+
+        /* Custom Cursor Style */
+        .custom-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="nav-glass fixed w-full z-50 px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-tighter">
+            SUN<span class="gold-text">EXIM</span><span class="text-sm block font-light tracking-widest uppercase">India</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-medium">
+            <a href="#" class="hover:text-yellow-500 transition">Home</a>
+            <a href="#about" class="hover:text-yellow-500 transition">Heritage</a>
+            <a href="#products" class="hover:text-yellow-500 transition">Portfolios</a>
+            <a href="#global" class="hover:text-yellow-500 transition">Global Footprint</a>
+            <a href="#contact" class="gold-bg text-black px-6 py-2 rounded-full hover:bg-white transition">Inquire Now</a>
+        </div>
+        <button class="md:hidden text-white"><i data-lucide="menu"></i></button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient flex items-center justify-center text-center px-4 relative">
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <h4 class="gold-text uppercase tracking-[0.3em] mb-4 text-sm font-semibold">Gateway to Global Markets</h4>
+            <h1 class="text-5xl md:text-8xl font-bold mb-6">Sun Exim India</h1>
+            <p class="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl font-light leading-relaxed">
+                Pioneering the export of premium Indian commodities to the global stage. Reliability, transparency, and quality delivered across five continents.
+            </p>
+            <div class="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#products" class="border border-white px-10 py-4 hover:bg-white hover:text-black transition uppercase tracking-widest text-xs">Explore Catalog</a>
+                <a href="#about" class="gold-bg text-black px-10 py-4 hover:bg-white transition uppercase tracking-widest text-xs font-bold">Our Legacy</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 floating">
+            <i data-lucide="chevron-down" class="text-white opacity-50"></i>
+        </div>
+    </header>
+
+    <!-- About Section (Unique Layout) -->
+    <section id="about" class="py-24 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-row-2 gap-12 items-center">
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/2" data-aos="fade-right">
+                        <span class="gold-text font-bold text-6xl opacity-20">01</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-8 -mt-6">Unmatched Integrity in <br><span class="gold-text italic">Global Trade</span></h2>
+                        <p class="text-gray-400 mb-6 leading-loose">
+                            Based in the heart of India's commercial hub, Sun Exim India acts as a bridge between the finest local producers and demanding international markets. We specialize in sourcing, quality control, and logistics for a diverse range of products including agro-commodities, textiles, and engineering goods.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 grid grid-cols-2 gap-4" data-aos="zoom-in">
+                        <div class="stat-circle mx-auto">
+                            <span class="text-3xl font-bold gold-text">15+</span>
+                            <span class="text-[10px] uppercase tracking-widest">Countries</span>
+                        </div>
+                        <div class="stat-circle mx-auto mt-12">
+                            <span class="text-3xl font-bold gold-text">500+</span>
+                            <span class="text-[10px] uppercase tracking-widest">Shipments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid (Animations) -->
+    <section id="products" class="py-24 diagonal-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Export Portfolios</h2>
+                <div class="h-1 w-24 gold-bg mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover p-8 rounded-2xl bg-zinc-900" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-6 gold-text"><i data-lucide="leaf" size="48"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Agro Commodities</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Premium spices, grains, and organic produce sourced directly from sustainable Indian farms with rigorous ISO standards.</p>
+                    <ul class="text-xs text-gray-500 space-y-2 uppercase tracking-tighter">
+                        <li>• Organic Basmati Rice</li>
+                        <li>• Premium Turmeric Finger</li>
+                        <li>• Dehydrated Onion/Garlic</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-hover p-8 rounded-2xl bg-zinc-900" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-6 gold-text"><i data-lucide="shirt" size="48"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Textile & Apparel</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Exquisite Indian fabrics and ready-to-wear garments. From traditional silk to modern industrial textiles.</p>
+                    <ul class="text-xs text-gray-500 space-y-2 uppercase tracking-tighter">
+                        <li>• Cotton Home Decor</li>
+                        <li>• Industrial Workwear</li>
+                        <li>• Eco-friendly Jute Bags</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-hover p-8 rounded-2xl bg-zinc-900" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mb-6 gold-text"><i data-lucide="settings" size="48"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Industrial Goods</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">High-precision engineering components and hardware designed for durability and international compliance.</p>
+                    <ul class="text-xs text-gray-500 space-y-2 uppercase tracking-tighter">
+                        <li>• Brass Fittings</li>
+                        <li>• Precision Casting</li>
+                        <li>• Infrastructure Hardware</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Network Section -->
+    <section id="global" class="py-24 bg-black overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                <h2 class="text-5xl font-bold mb-6">Connecting <span class="gold-text">Continents</span></h2>
+                <p class="text-gray-400 mb-8 max-w-md">Our logistical network spans across Europe, the Middle East, and Southeast Asia, ensuring timely delivery regardless of the complexity.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-2 gold-bg rounded-full text-black"><i data-lucide="check" size="16"></i></div>
+                        <span class="text-sm font-semibold">Real-time Tracking & Support</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-2 gold-bg rounded-full text-black"><i data-lucide="check" size="16"></i></div>
+                        <span class="text-sm font-semibold">Multi-modal Logistics (Sea/Air/Road)</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-2 gold-bg rounded-full text-black"><i data-lucide="check" size="16"></i></div>
+                        <span class="text-sm font-semibold">Duty Drawback & Compliance Assistance</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative" data-aos="zoom-out">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2070" alt="Logistics" class="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute -bottom-6 -right-6 gold-bg p-8 rounded-2xl text-black">
+                    <p class="text-4xl font-black">24/7</p>
+                    <p class="text-xs uppercase font-bold tracking-widest">Global Ops</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-black border border-zinc-800 p-12 rounded-3xl" data-aos="fade-up">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2">Partner with Us</h2>
+                    <p class="text-gray-500">Let's expand your business horizons together.</p>
+                </div>
+                <form class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Full Name" class="bg-zinc-900 border border-zinc-800 p-4 rounded-xl focus:outline-none focus:border-yellow-600 transition">
+                    <input type="email" placeholder="Corporate Email" class="bg-zinc-900 border border-zinc-800 p-4 rounded-xl focus:outline-none focus:border-yellow-600 transition">
+                    <select class="bg-zinc-900 border border-zinc-800 p-4 rounded-xl focus:outline-none focus:border-yellow-600 transition col-span-2">
+                        <option>Inquiry Category</option>
+                        <option>Bulk Export Order</option>
+                        <option>New Partnership</option>
+                        <option>Logistics Support</option>
+                    </select>
+                    <textarea placeholder="Message" rows="4" class="bg-zinc-900 border border-zinc-800 p-4 rounded-xl focus:outline-none focus:border-yellow-600 transition col-span-2"></textarea>
+                    <button class="gold-bg text-black font-bold py-4 rounded-xl hover:bg-white transition col-span-2 uppercase tracking-widest">Request a Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black border-t border-zinc-900">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-3xl font-bold mb-8">
+                SUN<span class="gold-text">EXIM</span>
+            </div>
+            <div class="flex justify-center space-x-8 mb-8 text-gray-500 text-sm">
+                <a href="#" class="hover:text-white">LinkedIn</a>
+                <a href="#" class="hover:text-white">Instagram</a>
+                <a href="#" class="hover:text-white">Twitter</a>
+            </div>
+            <p class="text-xs text-gray-600 uppercase tracking-widest">© 2024 Sun Exim India. All rights reserved. Registered Export House.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
