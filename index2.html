@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Exim India | Global Ceramic Export Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',    // Champagne Gold
+                            dark: '#121212',    // Deep Onyx
+                            sand: '#F4F1EA',    // Desert Sand
+                            stone: '#4A4A4A',   // Muted Stone
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Assets -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap');
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F4F1EA;
+            color: #121212;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Custom Elegant Cursor */
+        #custom-cursor {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #C5A059;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #custom-cursor::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: #C5A059;
+            border-radius: 50%;
+        }
+
+        /* Smooth Image Mask Reveal */
+        .img-reveal {
+            position: relative;
+            overflow: hidden;
+            background-color: #121212;
+        }
+        .img-reveal img {
+            transform: scale(1.2);
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            opacity: 0;
+        }
+        .aos-animate.img-reveal img {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Luxury Button with Animation */
+        .btn-elegant {
+            position: relative;
+            padding: 16px 48px;
+            background: #121212;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            display: inline-block;
+            border: 1px solid #121212;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-elegant::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 100%;
+            background: #C5A059;
+            transition: width 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: -1;
+        }
+        .btn-elegant:hover::before {
+            width: 100%;
+        }
+        .btn-elegant:hover {
+            color: white;
+            border-color: #C5A059;
+            padding-left: 60px;
+        }
+
+        /* Navigation Animation */
+        .nav-scrolled {
+            background: rgba(244, 241, 234, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 80px !important;
+        }
+
+        /* Floating Ornament Animation */
+        @keyframes float-ornament {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+            50% { transform: translateY(-15px) rotate(2deg); opacity: 0.8; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+        }
+        .floating-accent {
+            animation: float-ornament 6s ease-in-out infinite;
+        }
+
+        /* Section Ornament */
+        .ornament {
+            width: 0;
+            height: 1px;
+            background: #C5A059;
+            margin: 20px 0;
+            transition: width 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .aos-animate .ornament {
+            width: 80px;
+        }
+
+        /* Text Stroke with Reveal */
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(197, 160, 89, 0.2);
+            color: transparent;
+            transition: all 1s ease;
+        }
+        .text-stroke:hover {
+            -webkit-text-stroke: 1px rgba(197, 160, 89, 0.8);
+        }
+
+        /* Modern Grid Reveal */
+        .grid-item-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .aos-animate .grid-item-reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-gold selection:text-white">
+
+    <div id="custom-cursor"></div>
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 h-24 flex items-center transition-all duration-700" id="navbar">
+        <div class="container mx-auto px-8 flex justify-between items-center">
+            <a href="#" class="flex flex-col group" data-aos="fade-right">
+                <span class="font-serif text-3xl font-bold tracking-widest text-brand-dark group-hover:text-brand-gold transition-colors duration-500">SUN EXIM</span>
+                <span class="text-[9px] tracking-[0.5em] uppercase font-bold text-brand-gold">Morbi • India</span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-12" data-aos="fade-left">
+                <a href="#" class="text-[10px] font-bold uppercase tracking-widest hover:text-brand-gold transition-all duration-300 relative group">
+                    Origins
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#series" class="text-[10px] font-bold uppercase tracking-widest hover:text-brand-gold transition-all duration-300 relative group">
+                    Portfolios
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="text-[10px] font-bold uppercase tracking-widest hover:text-brand-gold transition-all duration-300 relative group">
+                    Philosophy
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="btn-elegant !py-3 !px-8 text-[9px]">Get Quote</a>
+            </nav>
+            
+            <button class="lg:hidden text-brand-dark transition-transform hover:rotate-90"><i class="fa-solid fa-bars-staggered text-xl"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative min-h-screen flex items-center pt-24 bg-brand-sand overflow-hidden">
+        <div class="container mx-auto px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6">
+                    <div data-aos="fade-up" data-aos-duration="1200">
+                        <h4 class="text-brand-gold font-bold text-[11px] tracking-[0.6em] uppercase mb-8 inline-block relative">
+                            Ceramic Export House
+                            <span class="absolute -right-12 top-1/2 w-8 h-[1px] bg-brand-gold"></span>
+                        </h4>
+                        <h1 class="text-7xl md:text-9xl font-bold leading-[0.95] mb-8 text-brand-dark tracking-tighter">
+                            Pure <br> <span class="font-serif italic font-normal text-stroke hover:text-brand-dark transition-all duration-1000">Excellence.</span>
+                        </h1>
+                        <div class="ornament"></div>
+                        <p class="text-brand-stone text-lg max-w-md mb-12 leading-relaxed opacity-0 transition-all duration-1000 delay-500 transform translate-y-5" id="hero-para">
+                            Specializing in the export of premium ceramic tiles, porcelain slabs, and vitrified solutions to over 50 nations globally.
+                        </p>
+                        <div class="flex items-center gap-10" data-aos="fade-up" data-aos-delay="800">
+                            <a href="#series" class="btn-elegant">Collections</a>
+                            <div class="text-[10px] font-bold tracking-widest border-b border-brand-gold pb-1 italic cursor-pointer hover:text-brand-gold transition-all">Explore Sizes <i class="fa-solid fa-arrow-right ml-2 text-[8px]"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-6 relative">
+                    <div class="img-reveal shadow-2xl relative z-10" data-aos="zoom-out-up" data-aos-duration="1500">
+                        <img src="https://images.unsplash.com/photo-1615529151169-7b1ff50dc7f2?q=80&w=2000&auto=format&fit=crop" alt="Luxury Interior" class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-10 -right-10 bg-brand-dark p-12 text-brand-white hidden xl:block z-20 floating-accent" data-aos="fade-left" data-aos-delay="1000">
+                        <div class="font-serif text-5xl italic mb-2">Morbi</div>
+                        <p class="text-[9px] uppercase tracking-[0.5em] font-bold text-brand-gold">The World Center</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-1/4 -right-20 w-96 h-96 border border-brand-gold/10 rounded-full floating-accent -z-0"></div>
+        <div class="absolute bottom-10 left-10 text-[20vh] font-bold text-brand-dark/5 select-none -z-0 font-serif italic">Sun Exim</div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-48 bg-white overflow-hidden" id="about">
+        <div class="container mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-32 items-center">
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="img-reveal rounded-sm" data-aos="fade-up" data-aos-duration="1200">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6199f7d209?q=80&w=1000&auto=format&fit=crop" class="aspect-[3/4] object-cover">
+                        </div>
+                        <div class="img-reveal mt-20 rounded-sm" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+                            <img src="https://images.unsplash.com/photo-1600607687940-4e7a9997843b?q=80&w=1000&auto=format&fit=crop" class="aspect-[3/4] object-cover">
+                        </div>
+                    </div>
+                    <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border border-brand-gold/5 scale-110"></div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1200">
+                    <h4 class="text-brand-gold font-bold text-[11px] tracking-[0.6em] uppercase mb-8">Our Origins</h4>
+                    <h2 class="text-6xl md:text-8xl font-bold mb-10 text-brand-dark leading-[0.9] tracking-tighter">Exporting <br><span class="font-serif italic font-normal">Precision.</span></h2>
+                    <p class="text-brand-stone text-xl mb-12 leading-relaxed opacity-90 font-light">
+                        SUN EXIM INDIA bridge the gap between India's finest ceramic manufacturing and global architectural demands. We ensure every shipment meets the highest quality standards for commercial and residential sectors.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="grid-item-reveal group" data-aos="fade-up" data-aos-delay="200">
+                            <h5 class="font-bold text-xs tracking-widest uppercase mb-4 text-brand-gold">Global Network</h5>
+                            <p class="text-sm text-brand-stone leading-relaxed group-hover:text-brand-dark transition-colors">Presence in 50+ countries with seamless logistics support.</p>
+                        </div>
+                        <div class="grid-item-reveal group" data-aos="fade-up" data-aos-delay="400">
+                            <h5 class="font-bold text-xs tracking-widest uppercase mb-4 text-brand-gold">Quality Lab</h5>
+                            <p class="text-sm text-brand-stone leading-relaxed group-hover:text-brand-dark transition-colors">Rigorous testing for durability, stain resistance, and finish.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Spotlight -->
+    <section class="py-48 bg-brand-sand relative" id="series">
+        <div class="container mx-auto px-8">
+            <div class="flex flex-col items-center text-center mb-32" data-aos="fade-up">
+                <div class="w-12 h-[1px] bg-brand-gold mb-8"></div>
+                <h4 class="text-brand-gold font-bold text-[11px] tracking-[0.6em] uppercase mb-4">The Collection</h4>
+                <h2 class="text-7xl font-bold text-brand-dark font-serif italic">Sizes & Surfaces</h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div data-aos="fade-right">
+                    <h3 class="text-5xl font-bold mb-10 leading-tight">Vitrified Solutions <br>for Every Scale.</h3>
+                    <p class="text-brand-stone text-lg leading-loose mb-12 opacity-80">
+                        From heavy-duty floor tiles for shopping malls to high-gloss decorative slabs for luxury lobbies, our Sun Collection offers unmatched variety in size and texture.
+                    </p>
+                    
+                    <div class="space-y-12">
+                        <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex justify-between items-end mb-4">
+                                <span class="text-xs font-bold tracking-[0.3em] uppercase">GVT / PGVT Tiles</span>
+                                <span class="text-brand-gold text-xs italic">600 x 1200 mm</span>
+                            </div>
+                            <div class="h-px bg-brand-gold/20 w-full group-hover:bg-brand-gold transition-all duration-500"></div>
+                        </div>
+                        <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex justify-between items-end mb-4">
+                                <span class="text-xs font-bold tracking-[0.3em] uppercase">Porcelain Slabs</span>
+                                <span class="text-brand-gold text-xs italic">800 x 1600 mm</span>
+                            </div>
+                            <div class="h-px bg-brand-gold/20 w-full group-hover:bg-brand-gold transition-all duration-500"></div>
+                        </div>
+                        <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex justify-between items-end mb-4">
+                                <span class="text-xs font-bold tracking-[0.3em] uppercase">Full Body Tiles</span>
+                                <span class="text-brand-gold text-xs italic">1200 x 2400 mm</span>
+                            </div>
+                            <div class="h-px bg-brand-gold/20 w-full group-hover:bg-brand-gold transition-all duration-500"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group" data-aos="fade-left">
+                    <div class="antra-wrapper-image-widget p-6 bg-white shadow-2xl transition-transform duration-700 group-hover:-translate-y-4">
+                        <img fetchpriority="high" decoding="async" src="https://galaxycorpind.com/wp-content/uploads/2025/06/h4-banner-1-5.jpg" alt="Collection Preview" class="w-full">
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-48 h-48 border-t border-r border-brand-gold/20 -z-10 transition-all duration-700 group-hover:scale-110"></div>
+                    <div class="absolute -bottom-6 -left-6 w-48 h-48 border-b border-l border-brand-gold/20 -z-10 transition-all duration-700 group-hover:scale-110"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white pt-40 pb-12 relative overflow-hidden">
+        <div class="container mx-auto px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-20 mb-32">
+                <div class="lg:col-span-5" data-aos="fade-up">
+                    <span class="font-serif text-5xl font-bold tracking-widest mb-10 block text-brand-gold">SUN EXIM</span>
+                    <p class="text-gray-400 text-lg leading-loose mb-12 max-w-sm">Premium global export of Indian ceramics. Crafted with precision, delivered with integrity.</p>
+                    <div class="flex gap-8">
+                        <a href="#" class="text-xl text-brand-gold hover:text-white transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="text-xl text-brand-gold hover:text-white transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-xl text-brand-gold hover:text-white transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-3" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="text-brand-gold text-[10px] font-bold uppercase tracking-[0.5em] mb-12">Contact Central</h5>
+                    <address class="not-italic text-gray-300 space-y-6 text-sm leading-relaxed">
+                        <p class="flex items-start gap-4 hover:text-brand-gold transition-colors cursor-pointer">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-gold"></i>
+                            Sun Exim Tower, National Highway 8A,<br>Morbi, Gujarat, India.
+                        </p>
+                        <p class="flex items-center gap-4 hover:text-brand-gold transition-colors cursor-pointer">
+                            <i class="fa-solid fa-phone text-brand-gold"></i>
+                            +91 999 888 7777
+                        </p>
+                    </address>
+                </div>
+
+                <div class="lg:col-span-4" data-aos="fade-up" data-aos-delay="400">
+                    <h5 class="text-brand-gold text-[10px] font-bold uppercase tracking-[0.5em] mb-12">Partnerships</h5>
+                    <p class="text-3xl font-serif italic mb-6 text-white hover:text-brand-gold transition-all duration-500 cursor-pointer underline decoration-brand-gold/30 underline-offset-[12px]">export@suneximindia.com</p>
+                    <p class="text-gray-500 text-xs tracking-widest uppercase">Response time: &lt; 24 Hours</p>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold tracking-[0.5em] text-gray-600">
+                <p>© 2025 SUN EXIM INDIA • EXPORT HOUSE MANAGEMENT</p>
+                <div class="flex gap-12 mt-8 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">PRIVACY POLICY</a>
+                    <a href="#" class="hover:text-white transition-colors">TRADE TERMS</a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Watermark -->
+        <div class="absolute -bottom-10 right-0 text-[30vh] font-serif font-black text-white/[0.02] select-none pointer-events-none">EXIM</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true,
+            easing: 'ease-out-quart',
+            offset: 100
+        });
+
+        // Custom Cursor with Lag/Smoothness
+        const cursor = document.getElementById('custom-cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            let dx = mouseX - cursorX;
+            let dy = mouseY - cursorY;
+            cursorX += dx * 0.15;
+            cursorY += dy * 0.15;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor interactions
+        document.querySelectorAll('a, button, .antra-wrapper-image-widget, .group').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(3)';
+                cursor.style.background = 'rgba(197, 160, 89, 0.1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.background = 'transparent';
+            });
+        });
+
+        // Hero Paragraph reveal trigger
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('hero-para').style.opacity = '0.8';
+                document.getElementById('hero-para').style.transform = 'translateY(0)';
+            }, 600);
+        });
+
+        // Navbar Scroll Logic
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 80) nav.classList.add('nav-scrolled');
+            else nav.classList.remove('nav-scrolled');
+        });
+
+        // Parallax Effect for Images
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.img-reveal img');
+            reveals.forEach(img => {
+                const scrollPos = window.pageYOffset;
+                const offsetTop = img.parentElement.offsetTop;
+                if (scrollPos > offsetTop - window.innerHeight) {
+                    const y = (scrollPos - offsetTop) * 0.05;
+                    img.style.transform = `translateY(${y}px) scale(1.1)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
