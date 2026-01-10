@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUN Exim India - Global Trade Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .slide-in-up {
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.8s ease-out forwards;
+        }
+
+        .delayed-1 { animation-delay: 0.2s; }
+        .delayed-2 { animation-delay: 0.4s; }
+        .delayed-3 { animation-delay: 0.6s; }
+        .delayed-4 { animation-delay: 0.8s; }
+
+        /* Watermark Styles */
+        .watermark {
+            position: absolute;
+            font-size: 30vw;
+            font-weight: 900;
+            color: rgba(184, 153, 111, 0.04);
+            z-index: 0;
+            pointer-events: none;
+            font-family: 'Playfair Display', serif;
+            white-space: nowrap;
+            line-height: 1;
+            user-select: none;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .watermark {
+                font-size: 40vw;
+            }
+        }
+
+        /* Initial State for Scroll Animations */
+        [data-animate] {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.8s ease-out;
+        }
+
+        [data-animate="fade"] {
+            transform: translateY(20px);
+        }
+
+        [data-animate="left"] {
+            transform: translateX(-50px);
+        }
+
+        [data-animate="right"] {
+            transform: translateX(50px);
+        }
+
+        [data-animate="up"] {
+            transform: translateY(50px);
+        }
+
+        [data-animate].animate {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        :root {
+            --primary-white: #ffffff;
+            --soft-gray: #f8f8f8;
+            --text-dark: #1a1a1a;
+            --text-medium: #666666;
+            --accent-gold: #b8996f;
+            --accent-dark: #8b7355;
+            --border-light: #e5e5e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-white);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        /* Logo */
+        .logo {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .logo-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+            margin-bottom: 3px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--text-gray);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Desktop Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text-dark);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            padding: 100px 30px 30px;
+            overflow-y: auto;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 18px 0;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--border-light);
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Banner Section */
+        .banner-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 6s ease-out;
+            transform: scale(1.1);
+        }
+
+        .swiper-slide-active .slide-image {
+            transform: scale(1);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 900px;
+            z-index: 10;
+            opacity: 0;
+            filter: blur(30px);
+            transition: all 1s ease 1.4s;
+        }
+
+        .swiper-slide-active .slide-content {
+            opacity: 1;
+            filter: blur(0);
+        }
+
+        .slide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: var(--primary-white);
+            text-transform: capitalize;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .slide-subtitle {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: var(--primary-white);
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .discover-btn {
+            background: transparent;
+            border: 1px solid var(--primary-white);
+            color: var(--primary-white);
+            padding: 16px 45px;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .discover-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-white);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .discover-btn:hover::before {
+            left: 0;
+        }
+
+        .discover-btn:hover {
+            color: var(--text-dark);
+        }
+
+        /* Navigation Buttons */
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: var(--primary-white);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            background: var(--primary-white);
+            color: var(--text-dark);
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .swiper-button-prev {
+            left: 40px;
+        }
+
+        .swiper-button-next {
+            right: 40px;
+        }
+
+        /* Thumbnail Navigation */
+        .banner-thumbs {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            max-width: 800px;
+            z-index: 50;
+        }
+
+        .thumbs-swiper {
+            width: 100%;
+        }
+
+        .thumbs-swiper .swiper-slide {
+            opacity: 0.6;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            border-bottom: 3px solid transparent;
+        }
+
+        .thumbs-swiper .swiper-slide-thumb-active {
+            opacity: 1;
+            border-bottom: 3px solid var(--primary-white);
+        }
+
+        .thumb-logo {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            padding: 15px;
+            filter: brightness(0) invert(1);
+            transition: transform 0.5s ease;
+        }
+
+        .thumbs-swiper .swiper-slide-thumb-active .thumb-logo {
+            transform: scale(1.1);
+        }
+
+        /* Placeholder Images */
+        .placeholder-slide {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .placeholder-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .placeholder-slide:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .placeholder-slide:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .placeholder-slide:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .placeholder-slide:nth-child(5) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.03);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 160px;
+            height: 160px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .badge-content {
+            text-align: center;
+        }
+
+        .badge-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #b8996f;
+            line-height: 1;
+        }
+
+        .badge-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-content {
+            padding: 20px;
+        }
+
+        .about-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .about-text {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-image-wrapper.reveal {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -80px;
+            width: 180px;
+            height: 180px;
+            background: var(--primary-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .badge-content {
+            position: absolute;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .badge-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .badge-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-medium);
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .rotating-text {
+
+/* Showcase Section */
+.showcase-section {
+    padding: 100px 0;
+    background: var(--soft-gray);
+    overflow: hidden;
+}
+
+.showcase-header {
+    margin-bottom: 70px;
+}
+            letter-spacing: 3px;
+            fill: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        .about-content {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+
+        .about-content.reveal {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-text {
+            color: var(--text-medium);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .know-more-btn {
+            display: inline-block;
+            background: var(--text-dark);
+            color: var(--primary-white);
+            padding: 16px 45px;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .know-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gold);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .know-more-btn:hover::before {
+            left: 0;
+        }
+
+        .know-more-btn:hover {
+            color: var(--primary-white);
+        }
+
+        /* Showcase Section */
+        .showcase-section {
+            padding: 100px 0;
+            background: var(--soft-gray);
+            overflow: hidden;
+        }
+
+        .showcase-header {
+            margin-bottom: 70px;
+        }
+
+        .showcase-header-left {
+            max-width: 800px;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+
+        .section-label.reveal {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .label-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        .label-text {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        .showcase-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease 0.1s;
+        }
+
+        .showcase-title.reveal {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .text-highlight {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .showcase-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .showcase-description.reveal {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .showcase-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 40px;
+            background: var(--text-dark);
+            color: var(--primary-white);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease 0.3s;
+        }
+
+        .showcase-btn.reveal {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .showcase-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gold);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .showcase-btn:hover::before {
+            left: 0;
+        }
+
+        .btn-icon {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-btn:hover .btn-icon {
+            transform: translateX(5px);
+        }
+
+        /* Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .showcase-card {
+            position: relative;
+            background: var(--primary-white);
+            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .showcase-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-white);
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .showcase-card:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .showcase-card:hover .card-title {
+            color: var(--accent-gold);
+        }
+
+        .card-description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-medium);
+        }
+
+        /* Staggered animation delays for cards */
+        .showcase-card:nth-child(1) { transition-delay: 0s; }
+        .showcase-card:nth-child(2) { transition-delay: 0.1s; }
+        .showcase-card:nth-child(3) { transition-delay: 0.2s; }
+        .showcase-card:nth-child(4) { transition-delay: 0.3s; }
+        .showcase-card:nth-child(5) { transition-delay: 0.4s; }
+
+        /* Responsive for Showcase Section */
+        @media (max-width: 1024px) {
+            .showcase-section {
+                padding: 80px 0;
+            }
+
+            .showcase-title {
+                font-size: 38px;
+            }
+
+            .showcase-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .card-image-wrapper {
+                height: 250px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .showcase-section {
+                padding: 60px 0;
+            }
+
+            .showcase-header {
+                margin-bottom: 50px;
+            }
+
+            .showcase-title {
+                font-size: 32px;
+            }
+
+            .showcase-description {
+                font-size: 15px;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card-image-wrapper {
+                height: 220px;
+            }
+
+            .card-content {
+                padding: 25px;
+            }
+
+            .card-title {
+                font-size: 18px;
+            }
+
+            .card-description {
+                font-size: 13px;
+            }
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            position: relative;
+            padding: 120px 0;
+            background: #f9f9f9;
+            overflow: hidden;
+        }
+
+        .expertise-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .gradient-flow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+
+        .bg-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMGgxMDB2MTAwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTUwIDUwbC0xMC0xMGg1bDEwIDEwLTEwIDEwdi0xMGgtMTB2LTUwaDEwdjEwem0wIDBsMTAtMTBoLTUwTDAgNTBsMTAgMTBoNTBsMTAtMTB6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9wYXR0ZXNuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjEiLz48L3N2Zz4=');
+            opacity: 0.2;
+        }
+
+        .watermark-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px;
+            font-weight: 900;
+            color: rgba(0,0,0,0.02);
+            white-space: nowrap;
+            z-index: 1;
+            pointer-events: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .expertise-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .expertise-left {
+            padding: 40px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .label-dot {
+            width: 8px;
+            height: 8px;
+            background: #b8996f;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .label-text {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b8996f;
+        }
+
+        .expertise-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #1a1a1a;
+        }
+
+        .text-highlight {
+            color: #b8996f;
+            font-weight: 600;
+        }
+
+        .expertise-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .progress-bars {
+            margin-top: 30px;
+        }
+
+        .progress-item {
+            margin-bottom: 25px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .progress-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .progress-percentage {
+            font-size: 14px;
+            font-weight: 700;
+            color: #b8996f;
+        }
+
+        .progress-track {
+            height: 6px;
+            background: #eaeaea;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #b8996f;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        .expertise-right {
+            position: relative;
+            padding: 40px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .expertise-image {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+            transition: transform 0.5s ease;
+        }
+
+        .expertise-right:hover .expertise-image {
+            transform: translateX(-20px);
+        }
+
+        /* Decorative elements */
+        .expertise-left::before,
+        .expertise-left::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgba(184, 153, 111, 0.2);
+            pointer-events: none;
+        }
+
+        .expertise-left::before {
+            top: -20px;
+            left: -20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .expertise-left::after {
+            bottom: -20px;
+            right: -20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        @media (max-width: 1024px) {
+            .expertise-section {
+                padding: 100px 0;
+            }
+
+            .watermark-text {
+                font-size: 180px;
+            }
+
+            .expertise-grid {
+                gap: 60px;
+            }
+
+            .expertise-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .expertise-section {
+                padding: 80px 0;
+            }
+
+            .watermark-text {
+                font-size: 80px;
+                top: 5%;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .expertise-left,
+            .expertise-right {
+                transform: translateY(30px);
+            }
+
+            .expertise-left.reveal,
+            .expertise-right.reveal {
+                transform: translateY(0);
+            }
+
+            .expertise-title {
+                font-size: 32px;
+            }
+
+            .expertise-description {
+                font-size: 15px;
+                margin-bottom: 40px;
+            }
+
+            .progress-bars {
+                gap: 30px;
+            }
+
+            .expertise-left::before,
+            .expertise-left::after {
+                display: none;
+            }
+        }
+
+        /* Responsive for About Section */
+        @media (max-width: 1024px) {
+            .about-section {
+                padding: 80px 0;
+            }
+
+            .container {
+                padding: 0 40px;
+            }
+
+            .about-grid {
+                gap: 60px;
+            }
+
+            .about-title {
+                font-size: 36px;
+            }
+
+            .experience-badge {
+                width: 150px;
+                height: 150px;
+                right: -60px;
+                bottom: 20px;
+            }
+
+            .badge-number {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 25px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-image-wrapper,
+            .about-content {
+                transform: translateY(30px);
+            }
+
+            .about-image-wrapper.reveal,
+            .about-content.reveal {
+                transform: translateY(0);
+            }
+
+            .about-title {
+                font-size: 28px;
+            }
+
+            .about-text {
+                font-size: 15px;
+            }
+
+            .experience-badge {
+                width: 120px;
+                height: 120px;
+                right: 20px;
+                bottom: 15px;
+            }
+
+            .badge-number {
+                font-size: 36px;
+            }
+
+            .badge-label {
+                font-size: 9px;
+            }
+
+            .circle-text {
+                font-size: 9px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .top-bar {
+                padding: 15px 40px;
+            }
+
+            .logo-title {
+                font-size: 28px;
+                letter-spacing: 4px;
+            }
+
+            .main-nav {
+                gap: 15px;
+            }
+            
+            .nav-link {
+                font-size: 12px;
+            }
+
+            .slide-title {
+                font-size: 42px;
+            }
+
+            .banner-thumbs {
+                width: 70%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 12px 20px;
+                flex-wrap: wrap;
+            }
+            
+            .logo-title {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+
+            .logo-subtitle {
+                font-size: 6px;
+            }
+            
+            .main-nav {
+                order: 2;
+                margin: 10px -10px 0;
+                width: 100%;
+                justify-content: space-around;
+                gap: 8px;
+            }
+            
+            .logo {
+                margin: 0 10px;
+            }
+            
+            .top-actions {
+                margin-left: auto;
+            }
+
+            .slide-title {
+                font-size: 32px;
+                letter-spacing: 3px;
+            }
+
+            .slide-subtitle {
+                font-size: 13px;
+                letter-spacing: 1.5px;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 40px;
+                height: 40px;
+            }
+
+            .swiper-button-prev::after,
+            .swiper-button-next::after {
+                font-size: 14px;
+            }
+
+            .swiper-button-prev {
+                left: 20px;
+            }
+
+            .swiper-button-next {
+                right: 20px;
+            }
+
+            .banner-thumbs {
+                width: 90%;
+                bottom: 5%;
+            }
+
+            .thumb-logo {
+                padding: 10px;
+            }
+
+            .top-actions {
+                gap: 15px;
+            }
+
+            .top-action span:not(:first-child) {
+                display: none;
+            }
+
+            .badge-text {
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header fade-in" id="header">
+        <div class="header-content slide-in-down">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-title">SUN Exim</div>
+                <div class="logo-subtitle">India</div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav">
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#solutions" class="nav-link">Trade Solutions</a>
+                <a href="#partners" class="nav-link">Partners</a>
+                <a href="#downloads" class="nav-link">Downloads</a>
+                <a href="#professional" class="nav-link">Professional</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#solutions">Trade Solutions</a>
+        <a href="#partners">Partners</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#professional">Professional</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <script>
+    // Scroll effect - transparent to white
+    const headerElement = document.getElementById('header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            headerElement.classList.add('scrolled');
+        } else {
+            headerElement.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const body = document.body;
+
+    mobileToggle.addEventListener('click', () => {
+        mobileToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            body.style.overflow = '';
+        });
+    });
+    </script>
+
+    <!-- Banner Section with Swiper -->
+    <section class="banner-section">
+        <div class="swiper main-swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 - Porcelain Tiles -->
+                <div class="swiper-slide">
+                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600585154340-2e1d99729a0c/1920x1080')">
+                    </div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="slide-title">Luxury Porcelain Tiles</div>
+                        <p class="slide-subtitle">Elegance Redefined for Modern Spaces</p>
+                        <a href="#porcelain" class="discover-btn">Explore Collection</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 - Ceramic Tiles -->
+                <div class="swiper-slide">
+                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600585154479-1c1e3d1e41f7/1920x1080')">
+                    </div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="slide-title">Premium Ceramic Tiles</div>
+                        <p class="slide-subtitle">Durability Meets Stunning Design</p>
+                        <a href="#ceramic" class="discover-btn">View Products</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 - Mosaic Tiles -->
+                <div class="swiper-slide">
+                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600585154449-20dd5dfb3393/1920x1080')">
+                    </div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="slide-title">Exquisite Mosaic Tiles</div>
+                        <p class="slide-subtitle">Artistic Patterns for Unique Spaces</p>
+                        <a href="#mosaic" class="discover-btn">Discover Designs</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 - Outdoor Tiles -->
+                <div class="swiper-slide">
+                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600607687939-ce8a6c25118c/1920x1080')">
+                    </div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="slide-title">Outdoor & Patio Tiles</div>
+                        <p class="slide-subtitle">Weather-Resistant & Stylish Solutions</p>
+                        <a href="#outdoor" class="discover-btn">View Outdoor Range</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <!-- Thumbnail Navigation -->
+        <div class="banner-thumbs">
+            <div class="swiper thumbs-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">PORCELAIN</text>
+                        </svg>
+                    </div>
+                    <div class="swiper-slide">
+                        <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">CERAMIC</text>
+                        </svg>
+                    </div>
+                    <div class="swiper-slide">
+                        <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">MOSAIC</text>
+                        </svg>
+                    </div>
+                    <div class="swiper-slide">
+                        <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">OUTDOOR</text>
+                        </svg>
+                    </div>
+                    <div class="swiper-slide">
+                        <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">PREMIUM</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" style="position: relative; overflow: hidden;">
+        <div class="watermark">SUN</div>
+        <div class="container">
+            <div class="about-grid" data-animate="fade">
+                <div class="about-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600585154340-2e1d99729a0c?w=800&q=80" 
+                         alt="SUN Exim Office" 
+                         class="about-image"
+                         loading="lazy"
+                         crossorigin="anonymous">
+                    <div class="experience-badge">
+                        <div class="badge-content">
+                            <div class="badge-number">25</div>
+                            <span class="badge-label">Years</span>
+                        </div>
+                        <svg class="rotating-text" viewBox="0 0 200 200">
+                            <defs>
+                                <path id="circle" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"/>
+                            </defs>
+                            <text class="circle-text">
+                                <textPath href="#circle">
+                                    EXCELLENCE • TRUST • QUALITY • EXCELLENCE • TRUST • QUALITY •
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <div class="section-label">
+                        <span class="label-dot"></span>
+                        <span class="label-text">About Us</span>
+                    </div>
+                    <h2 class="about-title">About <span>SUN Exim</span>: Premier Tiles Export Solutions</h2>
+                    <div class="about-text">
+                        <p>At SUN Exim India, we specialize in delivering world-class ceramic and porcelain tiles to international markets. Since our establishment, we have built a reputation for excellence in tile exports, combining traditional craftsmanship with modern manufacturing techniques.</p>
+                        <p>Our extensive collection features premium vitrified tiles, designer ceramics, and innovative surface solutions. From timeless marble effects to contemporary geometric patterns, we ensure every tile meets the highest standards of quality and durability for our global clientele.</p>
+                    </div>
+                    <a href="#" class="know-more-btn">
+                        <span>Know More</span>
+                        <span style="margin-left: 10px; transition: transform 0.3s ease;">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase-section" style="padding: 100px 0; background: #fff; position: relative; overflow: hidden;">
+        <div class="watermark" style="color: rgba(0, 0, 0, 0.02);">SUN</div>
+        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
+            <div class="showcase-header slide-in-up" data-animate="up" style="text-align: center; margin-bottom: 60px; position: relative; z-index: 2;">
+                <div class="section-label" style="display: inline-flex; align-items: center; margin-bottom: 20px; position: relative;">
+                    <span class="label-dot" style="display: inline-block; width: 8px; height: 8px; background: #b8996f; border-radius: 50%; margin-right: 10px;"></span>
+                    <span class="label-text" style="font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b8996f; position: relative; z-index: 1;">Showcase</span>
+                </div>
+                <h2 class="showcase-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3; position: relative; z-index: 1; white-space: nowrap;">
+                    Where Our <span style="color: #b8996f; position: relative; display: inline-block;">
+                        <span style="position: relative; z-index: 1;">Premium Tiles</span>
+                        <span style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: 0;"></span>
+                    </span> Bring Spaces to Life
+                </h2>
+                <p class="showcase-description" style="max-width: 700px; margin: 0 auto 40px; font-size: 16px; line-height: 1.8; color: #666; position: relative; z-index: 1;">
+                    From elegant living rooms to busy airports, our tiles enhance every space with style and strength. Perfect for homes, businesses, and public areas, they combine beauty, durability, and lasting performance.
+                </p>
+            </div>
+
+            <div class="showcase-grid" data-animate="fade" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px;">
+                <!-- Card 1 -->
+                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
+                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">01</span>
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Hotels & Resorts</h3>
+                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Premium tiles that create luxurious and welcoming environments for guests worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
+                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">02</span>
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Healthcare Facilities</h3>
+                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Hygienic and durable tiles designed for medical and wellness environments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
+                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">03</span>
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Corporate Offices</h3>
+                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Sophisticated tiles that enhance productivity and professional aesthetics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
+                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">04</span>
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Outdoor Living</h3>
+                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Weather-resistant tiles perfect for outdoor living and entertainment spaces.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
+                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">05</span>
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Elegant Interiors</h3>
+                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Transform residential spaces with our stunning designer tile collections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" style="display: inline-flex; align-items: center; background: #b8996f; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
+                    <span style="margin-right: 10px;">Explore our Products</span>
+                    <span style="font-size: 18px;">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section" data-animate="fade" style="position: relative; overflow: hidden;">
+        <div class="watermark">SUN</div>
+        <div class="expertise-background">
+            <div class="gradient-flow"></div>
+            <div class="bg-image-overlay"></div>
+        </div>
+        
+        <h2 class="watermark-text">sun exim</h2>
+        
+        <div class="container">
+            <div class="expertise-grid">
+                <div class="expertise-left reveal">
+                    <div class="section-label">
+                        <span class="label-dot"></span>
+                        <span class="label-text">Our Expertise</span>
+                    </div>
+                    
+                    <h2 class="expertise-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3;">Global Expertise in <span style="color: #b8996f;">Premium Tile</span> Manufacturing</h2>
+                    
+                    <p class="expertise-description" style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 40px; max-width: 600px;">With years of industry leadership, SUN Exim India blends craftsmanship, innovation, and market insight to deliver tiles that set new benchmarks in quality and design.</p>
+                    
+                    <div class="progress-bars">
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-title">Manufacturing Excellence</span>
+                                <span class="progress-percentage">95%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="95"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-title">Global Export Capability</span>
+                                <span class="progress-percentage">90%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-title">Design Innovation</span>
+                                <span class="progress-percentage">92%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expertise-right">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80" 
+                         alt="Manufacturing Facility" 
+                         class="expertise-image"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Slider Section -->
+    <section class="collections-section" style="position: relative; overflow: hidden;">
+        <div class="watermark" style="color: rgba(0, 0, 0, 0.02);">SUN</div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Premium Collections</h2>
+                <p class="section-subtitle">Explore our exclusive tile collections that redefine elegance and durability</p>
+            </div>
+            
+            <div class="latest-collections-swiper swiper">
+                <div class="swiper-wrapper">
+                    <!-- Collection 1 -->
+                    <div class="swiper-slide collection-slide">
+                        <a href="#" class="collection-link">
+                            <div class="collection-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1600585154340-2e1d99729a0c?w=800&q=80" 
+                                     alt="Luxury Collection" 
+                                     class="collection-image">
+                            </div>
+                            <h3 class="collection-title">Luxury Collection</h3>
+                        </a>
+                    </div>
+                    
+                    <!-- Collection 2 -->
+                    <div class="swiper-slide collection-slide">
+                        <a href="#" class="collection-link">
+                            <div class="collection-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" 
+                                     alt="Modern Collection" 
+                                     class="collection-image">
+                            </div>
+                            <h3 class="collection-title">Modern Collection</h3>
+                        </a>
+                    </div>
+                    
+                    <!-- Collection 3 -->
+                    <div class="swiper-slide collection-slide">
+                        <a href="#" class="collection-link">
+                            <div class="collection-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80" 
+                                     alt="Classic Collection" 
+                                     class="collection-image">
+                            </div>
+                            <h3 class="collection-title">Classic Collection</h3>
+                        </a>
+                    </div>
+                    
+                    <!-- Collection 4 -->
+                    <div class="swiper-slide collection-slide">
+                        <a href="#" class="collection-link">
+                            <div class="collection-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=80" 
+                                     alt="Urban Collection" 
+                                     class="collection-image">
+                            </div>
+                            <h3 class="collection-title">Urban Collection</h3>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            
+            <div class="view-all-collections">
+                <a href="#" class="view-all-btn">View All Collections</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Collections Section Styles */
+        .collections-section {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .latest-collections-swiper {
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .collection-slide {
+            transition: transform 0.3s ease;
+        }
+        
+        .collection-link {
+            display: block;
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+        
+        .collection-link:hover {
+            transform: translateY(-10px);
+        }
+        
+        .collection-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .collection-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .collection-link:hover .collection-image {
+            transform: scale(1.05);
+        }
+        
+        .collection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            text-align: center;
+            margin: 0;
+            padding: 0 15px;
+        }
+        
+        .view-all-collections {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .view-all-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: transparent;
+            color: #1a1a1a;
+            border: 1px solid #1a1a1a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .view-all-btn:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        
+        /* Swiper Navigation */
+        .latest-collections-swiper .swiper-button-prev,
+        .latest-collections-swiper .swiper-button-next {
+            color: #1a1a1a;
+            background: rgba(255, 255, 255, 0.9);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .latest-collections-swiper .swiper-button-prev:hover,
+        .latest-collections-swiper .swiper-button-next:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+        
+        .latest-collections-swiper .swiper-button-prev {
+            left: 20px;
+        }
+        
+        .latest-collections-swiper .swiper-button-next {
+            right: 20px;
+        }
+        
+        .latest-collections-swiper .swiper-button-prev:after,
+        .latest-collections-swiper .swiper-button-next:after {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .section-subtitle {
+                font-size: 14px;
+            }
+            
+            .collection-image {
+                height: 250px;
+            }
+            
+            .latest-collections-swiper .swiper-button-prev,
+            .latest-collections-swiper .swiper-button-next {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('[data-animate]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        // Optional: Unobserve after animation
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Add hover animations to cards
+            const cards = document.querySelectorAll('.showcase-card, .expertise-card, .counter-item');
+            cards.forEach(card => {
+                card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+                });
+            });
+
+            // Animate navigation items on page load
+            const navItems = document.querySelectorAll('.nav-link');
+            navItems.forEach((item, index) => {
+                item.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
+                item.style.opacity = '0';
+            });
+
+            // Animate hero content
+            const heroContent = document.querySelector('.slide-content');
+            if (heroContent) {
+                heroContent.style.animation = 'fadeIn 1s ease-out 0.3s forwards';
+                heroContent.style.opacity = '0';
+            }
+        });
+    </script>
+    <script>
+        // Get DOM elements first - using headerElement that was already defined
+        const topBar = document.querySelector('.top-bar') || headerElement; // Fallback to header if top-bar not found
+
+        // Define functions before using them
+        function updateNavTransparency() {
+            if (!topBar) return; // Skip if element not found
+            
+            if (window.scrollY > 50) {
+                topBar.classList.remove('transparent');
+                topBar.style.background = 'rgba(255, 255, 255, 0.98)';
+                topBar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                topBar.classList.add('transparent');
+                topBar.style.background = 'transparent';
+                topBar.style.boxShadow = 'none';
+            }
+        }
+
+        // Initialize thumbnail swiper first
+        const thumbsSwiper = new Swiper('.thumbs-swiper', {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            watchSlidesProgress: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                },
+                640: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                1024: {
+                    slidesPerView: 5,
+                }
+            }
+        });
+
+        // Initialize main swiper
+        const mainSwiper = new Swiper('.main-swiper', {
+            spaceBetween: 0,
+            effect: 'slide',
+            speed: 2000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            thumbs: {
+                swiper: thumbsSwiper,
+            },
+            on: {
+                init: function() {
+                    updateNavTransparency();
+                },
+                slideChange: function() {
+                    updateNavTransparency();
+                }
+            }
+        });
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateNavTransparency);
+
+        // Scroll-triggered reveal animations for About section
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        // Observe about section elements
+        document.querySelectorAll('.about-image-wrapper, .about-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe showcase section elements
+        document.querySelectorAll('.section-label, .showcase-title, .showcase-description, .showcase-btn, .showcase-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe expertise section elements
+        document.querySelectorAll('.expertise-left, .expertise-right, .progress-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Progress bar animation
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressFills = entry.target.querySelectorAll('.progress-fill');
+                    progressFills.forEach(fill => {
+                        const progress = fill.getAttribute('data-progress');
+                        setTimeout(() => {
+                            fill.style.width = progress + '%';
+                        }, 300);
+                    });
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const expertiseLeft = document.querySelector('.expertise-left');
+        if (expertiseLeft) {
+            progressObserver.observe(expertiseLeft);
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    /* Footer Styles */
+    .footer {
+        background-color: #1a1a1a;
+        color: #ffffff;
+        padding: 70px 0 30px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    .footer-logo h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        color: #b8996f;
+        margin-bottom: 5px;
+    }
+
+    .footer-logo p {
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .footer-about p {
+        color: #aaa;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        color: #b8996f;
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        background: #b8996f;
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+    .footer-heading {
+        font-size: 18px;
+        color: #fff;
+        margin-bottom: 25px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background: #b8996f;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        display: block;
+    }
+
+    .footer-links a:hover {
+        color: #b8996f;
+        padding-left: 5px;
+    }
+
+    .contact-info {
+        list-style: none;
+    }
+
+    .contact-info li {
+        display: flex;
+        margin-bottom: 15px;
+        align-items: flex-start;
+    }
+
+    .contact-info i {
+        color: #b8996f;
+        margin-right: 15px;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+
+    .contact-info p {
+        color: #aaa;
+        margin: 0;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        color: #777;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .footer-heading::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+    }
+</style>
+
+<!-- Contact Us Section -->
+<section class="contact-section">
+    <div class="contact-container">
+        <div class="contact-bg-text">SUN Exim</div>
+        <div class="contact-content">
+            <div class="contact-icon">
+                <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
+                </svg>
+                <span>Get A Quote</span>
+            </div>
+            <h2 class="contact-title">Your Dream Space <span>Deserves</span> the Perfect Tiles</h2>
+            <p class="contact-description">From contemporary designs to timeless classics, SUN Exim delivers tiles that inspire and transform spaces.</p>
+            <a href="#contact" class="contact-button">
+                <span class="button-content">
+                    <i class="fas fa-arrow-right"></i>
+                    <span class="button-text">Inquire Now</span>
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Contact Section Styles */
+    .contact-section {
+        position: relative;
+        padding: 100px 20px;
+        background-color: #f9f9f9;
+        overflow: hidden;
+    }
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .contact-bg-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25vw;
+        font-weight: 900;
+        color: rgba(184, 153, 111, 0.05);
+        white-space: nowrap;
+        font-family: 'Playfair Display', serif;
+        z-index: 1;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .contact-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        color: var(--accent-gold);
+        font-weight: 500;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .contact-icon svg {
+        width: 12px;
+        height: 12px;
+        fill: currentColor;
+    }
+
+    .contact-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 42px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .contact-title span {
+        color: var(--accent-gold);
+        position: relative;
+    }
+
+    .contact-description {
+        font-size: 18px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 35px;
+        background-color: var(--accent-gold);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 1px;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .contact-button .button-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .contact-button i {
+        transition: transform 0.3s ease;
+    }
+
+    .contact-button:hover {
+        background-color: var(--accent-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-button:hover i {
+        transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+        .contact-section {
+            padding: 70px 20px;
+        }
+
+        .contact-title {
+            font-size: 32px;
+        }
+
+        .contact-description {
+            font-size: 16px;
+        }
+
+        .contact-bg-text {
+            font-size: 30vw;
+        }
+    }
+</style>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content" data-animate="fade">
+        <!-- About Section -->
+        <div class="footer-about">
+            <div class="footer-logo">
+                <h2>SUN Exim</h2>
+                <p>GLOBAL TRADING</p>
+            </div>
+            <p>Leading the way in global trade with excellence, integrity, and innovation. We connect markets and build lasting relationships through quality products and exceptional service.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#expertise">Our Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Our Products -->
+        <div class="footer-section">
+            <h3 class="footer-heading">Our Products</h3>
+            <ul class="footer-links">
+                <li><a href="#">Ceramic Tiles</a></li>
+                <li><a href="#">Porcelain Tiles</a></li>
+                <li><a href="#">Mosaic Tiles</a></li>
+                <li><a href="#">Outdoor Tiles</a></li>
+                <li><a href="#">Bathroom Tiles</a></li>
+                <li><a href="#">Kitchen Tiles</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3 class="footer-heading">Contact Us</h3>
+            <ul class="contact-info">
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Trade Center, Business District<br>Mumbai, Maharashtra 400001<br>India</p>
+                </li>
+                <li>
+                    <i class="fas fa-phone"></i>
+                    <p>+91 98765 43210<br>+91 22 1234 5678</p>
+                </li>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <p>info@sunexim.com<br>support@sunexim.com</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 SUN Exim India. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #b8996f;"></i> by SUN Exim Team</p>
+    </div>
+</footer>
