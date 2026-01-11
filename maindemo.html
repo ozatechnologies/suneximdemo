@@ -167,14 +167,15 @@
             left: 0;
             width: 100%;
             z-index: 1000;
+            background: #000000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            background: transparent;
         }
 
         .header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
+            background: #000000 !important;
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .header-content {
@@ -251,26 +252,28 @@
         /* Mobile Menu */
         .mobile-toggle {
             display: none;
-            position: absolute;
-            right: 20px;
-            top: 30px;
-            background: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
             border: none;
             cursor: pointer;
+            padding: 0;
             z-index: 1001;
+            position: relative;
         }
 
         .mobile-toggle span {
             display: block;
-            width: 25px;
+            width: 100%;
             height: 2px;
-            background: var(--text-dark);
-            margin: 5px 0;
-            transition: all 0.3s ease;
+            background-color: var(--text-dark);
+            transition: all 0.3s ease-in-out;
         }
 
         .mobile-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
+            transform: translateY(9px) rotate(45deg);
         }
 
         .mobile-toggle.active span:nth-child(2) {
@@ -278,51 +281,66 @@
         }
 
         .mobile-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         .mobile-menu {
-            display: none;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
             height: 100vh;
-            background: white;
-            padding: 100px 30px 30px;
-            overflow-y: auto;
-            transform: translateY(-100%);
-            transition: transform 0.4s ease;
+            background: var(--primary-white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            padding: 100px 30px 30px;
+            transition: right 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
         }
 
         .mobile-menu.active {
-            transform: translateY(0);
+            right: 0;
         }
 
         .mobile-menu a {
             display: block;
-            padding: 18px 0;
+            padding: 12px 0;
             color: var(--text-dark);
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             border-bottom: 1px solid var(--border-light);
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
             font-family: 'Inter', sans-serif;
         }
 
         .mobile-menu a:hover {
             color: var(--accent-gold);
+            padding-left: 10px;
         }
 
         /* Banner Section */
         .banner-section {
             position: relative;
-            height: 100vh;
             width: 100%;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+        }
+        
+        .hero-slide-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .swiper {
@@ -348,13 +366,25 @@
         }
 
         .slide-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
-        }
+        position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to bottom, 
+            rgba(0, 0, 0, 0.6) 0%, 
+            rgba(0, 0, 0, 0.2) 50%, 
+            rgba(0, 0, 0, 0.3) 100%
+        ),
+        linear-gradient(to right, 
+            rgba(0, 0, 0, 0.3), 
+            rgba(0, 0, 0, 0.1)
+        ),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    z-index: 2; /* Ensure it's above the image but below text */
+}
 
         .slide-content {
             position: absolute;
@@ -578,10 +608,10 @@
 
         .experience-badge {
             position: absolute;
-            bottom: -30px;
-            right: -30px;
-            width: 160px;
-            height: 160px;
+            top: -40px;
+            left: 40px;
+            width: 140px;
+            height: 140px;
             background: #ffffff;
             border-radius: 50%;
             display: flex;
@@ -659,10 +689,10 @@
 
         .experience-badge {
             position: absolute;
-            bottom: 30px;
-            right: -80px;
-            width: 180px;
-            height: 180px;
+            top: -40px;
+            left: 40px;
+            width: 140px;
+            height: 140px;
             background: var(--primary-white);
             border-radius: 50%;
             display: flex;
@@ -1345,10 +1375,10 @@
             }
 
             .experience-badge {
-                width: 150px;
-                height: 150px;
-                right: -60px;
-                bottom: 20px;
+                width: 130px;
+                height: 130px;
+                left: 20px;
+                top: -30px;
             }
 
             .badge-number {
@@ -1389,10 +1419,10 @@
             }
 
             .experience-badge {
-                width: 120px;
-                height: 120px;
-                right: 20px;
-                bottom: 15px;
+                width: 100px;
+                height: 100px;
+                left: 15px;
+                top: -15px;
             }
 
             .badge-number {
@@ -1517,35 +1547,126 @@
                 font-size: 9px;
             }
         }
+
+        /* Mobile Menu Styles */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            position: absolute;
+            top: 30px;
+            right: 25px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--primary-white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 100px 30px 30px;
+            transition: right 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-gold);
+            padding-left: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .header-content {
+                position: relative;
+                padding: 20px 25px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header fade-in" id="header">
         <div class="header-content slide-in-down">
-            <!-- Logo -->
-            <div class="logo">
-                <div class="logo-title">SUN Exim</div>
-                <div class="logo-subtitle">India</div>
-            </div>
-
-            <!-- Desktop Navigation -->
-            <nav class="nav">
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#solutions" class="nav-link">Trade Solutions</a>
-                <a href="#partners" class="nav-link">Partners</a>
-                <a href="#downloads" class="nav-link">Downloads</a>
-                <a href="#professional" class="nav-link">Professional</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-
-            <!-- Mobile Toggle -->
-            <button class="mobile-toggle" id="mobileToggle">
+            <!-- Mobile Toggle Button -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-title" style="color: #ffffff;">SUN Exim</div>
+                <div class="logo-subtitle" style="color: #ffffff;">India</div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav">
+                <a href="#products" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out forwards fadeIn; opacity: 0;">Products</a>
+                <a href="#services" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.1s forwards fadeIn; opacity: 0;">Services</a>
+                <a href="#solutions" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.2s forwards fadeIn; opacity: 0;">Trade Solutions</a>
+                <a href="#partners" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.3s forwards fadeIn; opacity: 0;">Partners</a>
+                <a href="#downloads" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.4s forwards fadeIn; opacity: 0;">Downloads</a>
+                <a href="#professional" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.5s forwards fadeIn; opacity: 0;">Professional</a>
+                <a href="#contact" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.6s forwards fadeIn; opacity: 0;">Contact</a>
+            </nav>
         </div>
     </header>
 
@@ -1572,23 +1693,79 @@
         }
     });
 
-    // Mobile menu toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const body = document.body;
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+        const header = document.getElementById('header');
 
-    mobileToggle.addEventListener('click', () => {
-        mobileToggle.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    });
+        // Toggle mobile menu
+        mobileToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            
+            // Add/remove scrolled class to header when mobile menu is open
+            if (mobileMenu.classList.contains('active')) {
+                header.classList.add('scrolled');
+            } else if (window.scrollY <= 50) {
+                header.classList.remove('scrolled');
+            }
+        });
 
-    // Close mobile menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            body.style.overflow = '';
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+                
+                if (window.scrollY <= 50) {
+                    header.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only prevent default if it's an anchor link
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Close menu
+                        mobileToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        body.style.overflow = '';
+                        
+                        // Smooth scroll to section
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Adjust for header height
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 992) {
+                    // If window is resized to desktop view, ensure mobile menu is closed
+                    mobileToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    body.style.overflow = '';
+                }
+            }, 250);
         });
     });
     </script>
@@ -1599,8 +1776,12 @@
             <div class="swiper-wrapper">
                 <!-- Slide 1 - Porcelain Tiles -->
                 <div class="swiper-slide">
-                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600585154340-2e1d99729a0c/1920x1080')">
-                    </div>
+                    <img 
+                        src="https://www.kajariaceramics.com/storage/concept-picture/bianco-onduluto-n.jpg" 
+                        alt="Luxury Porcelain Tiles"
+                        loading="eager"
+                        class="hero-slide-image"
+                    >
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Luxury Porcelain Tiles</div>
@@ -1611,8 +1792,12 @@
 
                 <!-- Slide 2 - Ceramic Tiles -->
                 <div class="swiper-slide">
-                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600585154479-1c1e3d1e41f7/1920x1080')">
-                    </div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80" 
+                        alt="Premium Ceramic Tiles"
+                        loading="eager"
+                        class="hero-slide-image"
+                    >
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Premium Ceramic Tiles</div>
@@ -1623,8 +1808,12 @@
 
                 <!-- Slide 3 - Mosaic Tiles -->
                 <div class="swiper-slide">
-                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600585154449-20dd5dfb3393/1920x1080')">
-                    </div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=1920&q=80" 
+                        alt="Exquisite Mosaic Tiles"
+                        loading="eager"
+                        class="hero-slide-image"
+                    >
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Exquisite Mosaic Tiles</div>
@@ -1635,8 +1824,12 @@
                 
                 <!-- Slide 4 - Outdoor Tiles -->
                 <div class="swiper-slide">
-                    <div class="placeholder-slide" style="background-image: url('https://source.unsplash.com/1600607687939-ce8a6c25118c/1920x1080')">
-                    </div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80" 
+                        alt="Outdoor & Patio Tiles"
+                        loading="eager"
+                        class="hero-slide-image"
+                    >
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Outdoor & Patio Tiles</div>
@@ -1691,15 +1884,15 @@
         <div class="container">
             <div class="about-grid" data-animate="fade">
                 <div class="about-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1600585154340-2e1d99729a0c?w=800&q=80" 
+                    <img src="https://res.cloudinary.com/dcqre7nop/image/upload/v1768108204/SUN_doc09c.png" 
                          alt="SUN Exim Office" 
                          class="about-image"
                          loading="lazy"
-                         crossorigin="anonymous">
+                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <div class="experience-badge">
                         <div class="badge-content">
-                            <div class="badge-number">25</div>
-                            <span class="badge-label">Years</span>
+                            <div class="badge-number">5+</div>
+                            <span class="badge-label">YEARS</span>
                         </div>
                         <svg class="rotating-text" viewBox="0 0 200 200">
                             <defs>
@@ -1890,74 +2083,217 @@
     </section>
 
     <!-- Collections Slider Section -->
-    <section class="collections-section" style="position: relative; overflow: hidden;">
+    <section class="collections-section" style="position: relative; overflow: hidden; padding: 100px 0;">
         <div class="watermark" style="color: rgba(0, 0, 0, 0.02);">SUN</div>
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Premium Collections</h2>
                 <p class="section-subtitle">Explore our exclusive tile collections that redefine elegance and durability</p>
             </div>
-            
-            <div class="latest-collections-swiper swiper">
-                <div class="swiper-wrapper">
-                    <!-- Collection 1 -->
-                    <div class="swiper-slide collection-slide">
-                        <a href="#" class="collection-link">
-                            <div class="collection-image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1600585154340-2e1d99729a0c?w=800&q=80" 
-                                     alt="Luxury Collection" 
-                                     class="collection-image">
-                            </div>
-                            <h3 class="collection-title">Luxury Collection</h3>
-                        </a>
-                    </div>
-                    
-                    <!-- Collection 2 -->
-                    <div class="swiper-slide collection-slide">
-                        <a href="#" class="collection-link">
-                            <div class="collection-image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" 
-                                     alt="Modern Collection" 
-                                     class="collection-image">
-                            </div>
-                            <h3 class="collection-title">Modern Collection</h3>
-                        </a>
-                    </div>
-                    
-                    <!-- Collection 3 -->
-                    <div class="swiper-slide collection-slide">
-                        <a href="#" class="collection-link">
-                            <div class="collection-image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80" 
-                                     alt="Classic Collection" 
-                                     class="collection-image">
-                            </div>
-                            <h3 class="collection-title">Classic Collection</h3>
-                        </a>
-                    </div>
-                    
-                    <!-- Collection 4 -->
-                    <div class="swiper-slide collection-slide">
-                        <a href="#" class="collection-link">
-                            <div class="collection-image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=80" 
-                                     alt="Urban Collection" 
-                                     class="collection-image">
-                            </div>
-                            <h3 class="collection-title">Urban Collection</h3>
-                        </a>
-                    </div>
+        </div>
+
+        <!-- Slider Container -->
+        <div class="slider-container">
+            <div class="left-slide">
+                <div style="background-color: #f9f9f9; color: #1a1a1a">
+                    <h1>Luxury Collection</h1>
+                    <p>Elegant and sophisticated designs for premium spaces</p>
                 </div>
-                
-                <!-- Navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div style="background-color: #f9f9f9; color: #1a1a1a">
+                    <h1>Modern Collection</h1>
+                    <p>Contemporary styles for the modern home</p>
+                </div>
+                <div style="background-color: #f9f9f9; color: #1a1a1a">
+                    <h1>Classic Collection</h1>
+                    <p>Timeless designs with enduring appeal</p>
+                </div>
+                <div style="background-color: #f9f9f9; color: #1a1a1a">
+                    <h1>Urban Collection</h1>
+                    <p>Trendy designs for urban living spaces</p>
+                </div>
             </div>
-            
-            <div class="view-all-collections">
-                <a href="#" class="view-all-btn">View All Collections</a>
+            <div class="right-slide">
+                <div style="background-image: url('https://images.unsplash.com/photo-1614314107768-6018061b5b72?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+                </div>
+                <div style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+                </div>
+                <div style="background-image: url('https://images.unsplash.com/photo-1614732414444-096e5f1122d5?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+                </div>
+                <div style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="down-button"><i class="fa-solid fa-caret-down"></i></button>
+                <button class="up-button"><i class="fa-solid fa-caret-up"></i></button>
             </div>
         </div>
+
+        <style>
+            /* Slider Styles */
+            .slider-container {
+                position: relative;
+                width: 100%;
+                height: 600px;
+                overflow: hidden;
+                margin-top: 40px;
+            }
+
+            .left-slide {
+                height: 100%;
+                width: 35%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .left-slide > div {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+                text-align: center;
+            }
+
+            .left-slide h1 {
+                font-size: 32px;
+                margin-bottom: 20px;
+                font-family: 'Playfair Display', serif;
+                color: #1a1a1a;
+            }
+
+            .left-slide p {
+                font-size: 18px;
+                color: #666;
+                margin-bottom: 20px;
+            }
+
+            .right-slide {
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 35%;
+                width: 65%;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .right-slide > div {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                height: 100%;
+                width: 100%;
+            }
+
+            .action-buttons button {
+                position: absolute;
+                left: 35%;
+                top: 50%;
+                z-index: 100;
+                background-color: #fff;
+                border: none;
+                color: #1a1a1a;
+                cursor: pointer;
+                font-size: 24px;
+                padding: 15px;
+                transition: all 0.3s ease;
+            }
+
+            .action-buttons button:hover {
+                color: #b8996f;
+            }
+
+            .action-buttons .down-button {
+                transform: translateX(-100%);
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+            .action-buttons .up-button {
+                transform: translateY(-100%);
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+            @media (max-width: 768px) {
+                .slider-container {
+                    height: 400px;
+                }
+                
+                .left-slide {
+                    width: 100%;
+                    height: 25%;
+                    top: 75%;
+                }
+                
+                .right-slide {
+                    left: 0;
+                    width: 100%;
+                    height: 75%;
+                }
+                
+                .action-buttons button {
+                    left: 0;
+                    top: 75%;
+                }
+                
+                .action-buttons .up-button {
+                    transform: translateX(0);
+                    left: auto;
+                    right: 0;
+                    top: 75%;
+                }
+                
+                .action-buttons .down-button {
+                    transform: translateX(0);
+                    top: 75%;
+                }
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const sliderContainer = document.querySelector('.slider-container');
+                const slideRight = document.querySelector('.right-slide');
+                const slideLeft = document.querySelector('.left-slide');
+                const upButton = document.querySelector('.up-button');
+                const downButton = document.querySelector('.down-button');
+                const slidesLength = slideRight.querySelectorAll('div').length;
+
+                let activeSlideIndex = 0;
+
+                slideLeft.style.top = `-${(slidesLength - 1) * 100}%`;
+
+                const changeSlide = (direction) => {
+                    const sliderHeight = sliderContainer.clientHeight;
+                    if (direction === 'up') {
+                        activeSlideIndex++;
+                        if (activeSlideIndex > slidesLength - 1) {
+                            activeSlideIndex = 0;
+                        }
+                    } else if (direction === 'down') {
+                        activeSlideIndex--;
+                        if (activeSlideIndex < 0) {
+                            activeSlideIndex = slidesLength - 1;
+                        }
+                    }
+
+                    slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+                    slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+                };
+
+                upButton.addEventListener('click', () => changeSlide('up'));
+                downButton.addEventListener('click', () => changeSlide('down'));
+
+                // Auto slide every 5 seconds
+                setInterval(() => {
+                    changeSlide('up');
+                }, 5000);
+            });
+        </script>
     </section>
 
     <style>
@@ -1974,18 +2310,25 @@
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 400;
+            font-size: 42px;
+            font-weight: 600;
             color: #1a1a1a;
-            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
         }
         
         .section-subtitle {
-            font-size: 16px;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: 18px;
+            color: #444;
+            font-style: italic;
             line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .latest-collections-swiper {
@@ -2094,11 +2437,12 @@
         
         @media (max-width: 768px) {
             .section-title {
-                font-size: 28px;
+                font-size: 32px;
+                padding-bottom: 10px;
             }
             
             .section-subtitle {
-                font-size: 14px;
+                font-size: 15px;
             }
             
             .collection-image {
@@ -2463,13 +2807,13 @@
         <div class="contact-bg-text">SUN Exim</div>
         <div class="contact-content">
             <div class="contact-icon">
-                <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle pulse" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="animation: pulse 2s infinite;">
                     <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
                 </svg>
-                <span>Get A Quote</span>
+                <span class="fade-in-up" style="display: inline-block; animation: fadeInUp 0.8s ease-out;">Get A Quote</span>
             </div>
-            <h2 class="contact-title">Your Dream Space <span>Deserves</span> the Perfect Tiles</h2>
-            <p class="contact-description">From contemporary designs to timeless classics, SUN Exim delivers tiles that inspire and transform spaces.</p>
+            <h2 class="contact-title fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.2s both;">Your Dream Space <span class="highlight-text" style="color: #b8996f; position: relative; display: inline-block;">Deserves</span> the Perfect Tiles</h2>
+            <p class="contact-description fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.4s both;">From contemporary designs to timeless classics, SUN Exim delivers tiles that inspire and transform spaces.</p>
             <a href="#contact" class="contact-button">
                 <span class="button-content">
                     <i class="fas fa-arrow-right"></i>
