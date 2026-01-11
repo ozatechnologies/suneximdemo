@@ -1935,11 +1935,12 @@
                     <span class="label-dot" style="display: inline-block; width: 8px; height: 8px; background: #b8996f; border-radius: 50%; margin-right: 10px;"></span>
                     <span class="label-text" style="font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b8996f; position: relative; z-index: 1;">Showcase</span>
                 </div>
-                <h2 class="showcase-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3; position: relative; z-index: 1; white-space: nowrap;">
-                    Where Our <span style="color: #b8996f; position: relative; display: inline-block;">
+                <h2 class="showcase-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3; position: relative; z-index: 1;">
+                    <span style="display: block; white-space: normal;">Where Our <span style="color: #b8996f; position: relative; display: inline-block;">
                         <span style="position: relative; z-index: 1;">Premium Tiles</span>
                         <span style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: 0;"></span>
-                    </span> Bring Spaces to Life
+                    </span></span>
+                    <span style="display: block; white-space: normal; margin-top: 5px;">Bring Spaces to Life</span>
                 </h2>
                 <p class="showcase-description" style="max-width: 700px; margin: 0 auto 40px; font-size: 16px; line-height: 1.8; color: #666; position: relative; z-index: 1;">
                     From elegant living rooms to busy airports, our tiles enhance every space with style and strength. Perfect for homes, businesses, and public areas, they combine beauty, durability, and lasting performance.
@@ -2028,8 +2029,8 @@
         <h2 class="watermark-text">sun exim</h2>
         
         <div class="container">
-            <div class="expertise-grid">
-                <div class="expertise-left reveal">
+            <div class="expertise-grid" style="display: flex; align-items: center;">
+                <div class="expertise-content" style="flex: 1;">
                     <div class="section-label">
                         <span class="label-dot"></span>
                         <span class="label-text">Our Expertise</span>
@@ -2072,59 +2073,173 @@
                     </div>
                 </div>
                 
-                <div class="expertise-right">
+                <div class="expertise-image-container" style="flex: 1; padding-left: 50px;">
                     <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80" 
                          alt="Manufacturing Facility" 
                          class="expertise-image"
+                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
                          loading="lazy">
                 </div>
             </div>
         </div>
+        
+        <style>
+            @media (max-width: 768px) {
+                .expertise-grid {
+                    flex-direction: column !important;
+                }
+                
+                .expertise-content {
+                    order: 1;
+                    width: 100%;
+                    padding: 0 20px 30px;
+                }
+                
+                .expertise-image-container {
+                    order: 2;
+                    width: 100%;
+                    padding: 0 20px !important;
+                    margin-top: 30px;
+                }
+                
+                .expertise-title {
+                    font-size: 32px !important;
+                    text-align: center;
+                }
+                
+                .expertise-description {
+                    text-align: center;
+                    margin: 0 auto 30px !important;
+                }
+                
+                .section-label {
+                    justify-content: center;
+                    margin-bottom: 20px;
+                }
+                
+                .progress-item {
+                    margin-bottom: 20px;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                .progress-item.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .progress-fill {
+                    width: 0;
+                    transition: width 1.5s ease 0.3s;
+                }
+            }
+        </style>
+
+        <script>
+            // Intersection Observer for scroll animations and progress bars
+            document.addEventListener('DOMContentLoaded', function() {
+                // Animate progress bars on mobile when they come into view
+                const progressItems = document.querySelectorAll('.progress-item');
+                const progressObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            const progressFill = entry.target.querySelector('.progress-fill');
+                            if (progressFill) {
+                                const progress = progressFill.getAttribute('data-progress');
+                                progressFill.style.width = progress + '%';
+                            }
+                            progressObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.2 });
+
+                progressItems.forEach(item => {
+                    progressObserver.observe(item);
+                });
+
+                // Existing animation code
+                const animateElements = document.querySelectorAll('[data-animate]');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                            // Optional: Unobserve after animation
+                            // observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                animateElements.forEach(element => {
+                    observer.observe(element);
+                });
+
+                // Add hover animations to cards
+                const cards = document.querySelectorAll('.showcase-card, .expertise-card, .counter-item');
+                cards.forEach(card => {
+                    card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                    card.addEventListener('mouseenter', () => {
+                        card.style.transform = 'translateY(-10px)';
+                        card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'translateY(0)';
+                        card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+                    });
+                });
+
+                // Animate navigation items on page load
+                const navItems = document.querySelectorAll('.nav-link');
+                navItems.forEach((item, index) => {
+                    item.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
+                    item.style.opacity = '0';
+                });
+
+                // Animate hero content
+                const heroContent = document.querySelector('.slide-content');
+                if (heroContent) {
+                    heroContent.style.animation = 'fadeIn 1s ease-out 0.3s forwards';
+                    heroContent.style.opacity = '0';
+                }
+            });
+        </script>
     </section>
 
     <!-- Collections Slider Section -->
-    <section class="collections-section" style="position: relative; overflow: hidden; padding: 100px 0;">
+    <section class="collections-section" style="position: relative; overflow: hidden; padding: 100px 0; background-color: #f9f9f9;">
         <div class="watermark" style="color: rgba(0, 0, 0, 0.02);">SUN</div>
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Premium Collections</h2>
-                <p class="section-subtitle">Explore our exclusive tile collections that redefine elegance and durability</p>
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+                <h2 class="section-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin: 0 auto 20px; display: inline-block; position: relative;">
+                    <span style="position: relative; z-index: 1; padding: 0 20px; background: #f9f9f9;">Our Premium Collections</span>
+                    <span style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: -1;"></span>
+                </h2>
+                <p class="section-subtitle" style="font-size: 18px; color: #666; max-width: 700px; margin: 0 auto; font-style: italic; line-height: 1.6;">
+                    Explore our exclusive tile collections that redefine elegance and durability
+                </p>
             </div>
         </div>
 
         <!-- Slider Container -->
-        <div class="slider-container">
+        <div class="slider-container" style="max-width: 1200px; margin: 0 auto; position: relative;">
             <div class="left-slide">
-                <div style="background-color: #f9f9f9; color: #1a1a1a">
-                    <h1>Luxury Collection</h1>
-                    <p>Elegant and sophisticated designs for premium spaces</p>
-                </div>
-                <div style="background-color: #f9f9f9; color: #1a1a1a">
-                    <h1>Modern Collection</h1>
-                    <p>Contemporary styles for the modern home</p>
-                </div>
-                <div style="background-color: #f9f9f9; color: #1a1a1a">
-                    <h1>Classic Collection</h1>
-                    <p>Timeless designs with enduring appeal</p>
-                </div>
-                <div style="background-color: #f9f9f9; color: #1a1a1a">
-                    <h1>Urban Collection</h1>
-                    <p>Trendy designs for urban living spaces</p>
-                </div>
+                <!-- Content will be populated by JavaScript -->
             </div>
             <div class="right-slide">
-                <div style="background-image: url('https://images.unsplash.com/photo-1614314107768-6018061b5b72?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                </div>
-                <div style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                </div>
-                <div style="background-image: url('https://images.unsplash.com/photo-1614732414444-096e5f1122d5?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                </div>
-                <div style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                </div>
+                <!-- Images will be populated by JavaScript -->
             </div>
             <div class="action-buttons">
-                <button class="down-button"><i class="fa-solid fa-caret-down"></i></button>
-                <button class="up-button"><i class="fa-solid fa-caret-up"></i></button>
+                <button class="down-button">
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+                <button class="up-button">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
             </div>
         </div>
 
@@ -2136,6 +2251,11 @@
                 height: 600px;
                 overflow: hidden;
                 margin-top: 40px;
+            }
+            
+            .slider-container .left-slide,
+            .slider-container .right-slide {
+                transition: opacity 1.5s ease-in-out;
             }
 
             .left-slide {
@@ -2220,36 +2340,84 @@
 
             @media (max-width: 768px) {
                 .slider-container {
-                    height: 400px;
+                    height: auto;
+                    min-height: 100vh;
+                    flex-direction: column;
+                    margin-top: 20px;
                 }
                 
                 .left-slide {
+                    position: relative;
                     width: 100%;
-                    height: 25%;
-                    top: 75%;
+                    height: auto;
+                    top: 0;
+                    order: 2;
+                    background: #fff;
+                    padding: 20px 0;
+                    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+                }
+                
+                .left-slide > div {
+                    padding: 20px !important;
+                    text-align: center;
+                    height: auto;
+                }
+                
+                .left-slide h1 {
+                    font-size: 22px !important;
+                    margin-bottom: 10px !important;
+                }
+                
+                .left-slide p {
+                    font-size: 15px !important;
+                    margin-bottom: 0 !important;
                 }
                 
                 .right-slide {
+                    position: relative;
                     left: 0;
                     width: 100%;
-                    height: 75%;
+                    height: 50vh;
+                    order: 1;
+                }
+                
+                .right-slide > div {
+                    background-size: cover;
+                    background-position: center;
+                }
+                
+                .action-buttons {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 0;
+                    right: 0;
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    z-index: 10;
+                    order: 3;
                 }
                 
                 .action-buttons button {
-                    left: 0;
-                    top: 75%;
+                    position: static;
+                    transform: none !important;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50% !important;
+                    background: rgba(255,255,255,0.9) !important;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
                 }
                 
-                .action-buttons .up-button {
-                    transform: translateX(0);
-                    left: auto;
-                    right: 0;
-                    top: 75%;
-                }
-                
+                .action-buttons .up-button,
                 .action-buttons .down-button {
-                    transform: translateX(0);
-                    top: 75%;
+                    position: static;
+                    left: auto;
+                    right: auto;
+                    top: auto;
                 }
             }
         </style>
@@ -2383,367 +2551,273 @@
                 left: 20px;
             }
             
-            .latest-collections-swiper .swiper-button-next {
-                right: 20px;
-            }
-            
-            .latest-collections-swiper .swiper-button-prev:after,
-            .latest-collections-swiper .swiper-button-next:after {
-                font-size: 18px;
-                font-weight: bold;
-            }
-            
             @media (max-width: 768px) {
-                .collections-section {
-                    padding: 50px 0 !important;
-                }
-                
-                .section-header {
-                    padding: 0 20px;
-                    margin-bottom: 30px !important;
-                }
-                
                 .section-title {
-                    font-size: 28px !important;
-                    margin-bottom: 10px !important;
+                    font-size: 32px;
                     padding-bottom: 10px;
                 }
                 
                 .section-subtitle {
-                    font-size: 15px !important;
-                    line-height: 1.5;
-                    max-width: 90%;
-                    margin: 0 auto 20px !important;
-                    padding: 0 10px;
+                    font-size: 15px;
                 }
                 
-                .slider-container {
-                    height: 500px !important;
-                    margin-top: 20px !important;
-                }
-                
-                .left-slide {
-                    width: 100% !important;
-                    height: 30% !important;
-                    top: 70% !important;
-                    z-index: 10;
-                    background: rgba(255, 255, 255, 0.95);
-                    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
-                }
-                
-                .left-slide > div {
-                    padding: 15px 20px !important;
-                }
-                
-                .left-slide h1 {
-                    font-size: 20px !important;
-                    margin-bottom: 8px !important;
-                }
-                
-                .left-slide p {
-                    font-size: 14px !important;
-                    margin-bottom: 0 !important;
-                    line-height: 1.4;
-                }
-                
-                .right-slide {
-                    left: 0 !important;
-                    width: 100% !important;
-                    height: 70% !important;
-                }
-                
-                .action-buttons button {
-                    width: 50px !important;
-                    height: 50px !important;
-                    padding: 0 !important;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(255, 255, 255, 0.9) !important;
-                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                    border: none;
-                    color: #1a1a1a;
-                    font-size: 20px;
-                }
-                
-                .action-buttons .up-button {
-                    left: auto !important;
-                    right: 20px !important;
-                    top: 65% !important;
-                    transform: translateY(-50%) !important;
-                    border-radius: 50% !important;
-                }
-                
-                .action-buttons .down-button {
-                    left: 20px !important;
-                    right: auto !important;
-                    top: 65% !important;
-                    transform: translateY(-50%) !important;
-                    border-radius: 50% !important;
-                }
-                
-                .watermark {
-                    font-size: 20vw !important;
-                    opacity: 0.02 !important;
-                }
+                /* Collection image and swiper navigation styles are defined in the main styles above */
             }
         </style>
 
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const sliderContainer = document.querySelector('.slider-container');
-                const slideRight = document.querySelector('.right-slide');
-                const slideLeft = document.querySelector('.left-slide');
+            // Collection data
+            const collections = [
+                {
+                    title: 'Luxury Marble Collection',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                    image: 'https://images.unsplash.com/photo-1600585154526-990dced4b1ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                },
+                {
+                    title: 'Wooden Tiles Series',
+                    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                    image: 'https://images.unsplash.com/photo-1600585154340-b0416eeae21d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                },
+                {
+                    title: 'Modern Concrete Tiles',
+                    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                },
+                {
+                    title: 'Patterned Tile Designs',
+                    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                }
+            ];
+
+            // Initialize the slider
+            document.addEventListener('DOMContentLoaded', function() {
+                const leftSlide = document.querySelector('.left-slide');
+                const rightSlide = document.querySelector('.right-slide');
                 const upButton = document.querySelector('.up-button');
                 const downButton = document.querySelector('.down-button');
-                const slidesLength = slideRight.querySelectorAll('div').length;
+                let currentSlide = 0;
+                let isAnimating = false;
+                const slideDuration = 5000; // 5 seconds per slide
 
-                let activeSlideIndex = 0;
+                // Populate slides
+                collections.forEach((collection, index) => {
+                    // Left slide content - positioned absolutely over the right slide
+                    leftSlide.innerHTML += `
+                        <div class="slide-content" style="
+                            position: absolute;
+                            right: 10%;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background: rgba(255, 255, 255, 0.9);
+                            padding: 40px;
+                            max-width: 400px;
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                            border-radius: 8px;
+                            opacity: ${index === 0 ? 1 : 0};
+                            transition: opacity 1s ease-in-out;
+                        ">
+                            <h1 style="color: #1a1a1a; margin: 0 0 20px 0; font-size: 2em; font-family: 'Playfair Display', serif;">
+                                ${collection.title}
+                            </h1>
+                            <p style="color: #666; margin: 0 0 25px 0; line-height: 1.6; font-size: 1em;">
+                                ${collection.description}
+                            </p>
+                            <a href="#" style="
+                                display: inline-block;
+                                padding: 12px 30px;
+                                background: #b8996f;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 30px;
+                                font-weight: 500;
+                                transition: all 0.3s ease;
+                                font-size: 0.9em;
+                                letter-spacing: 1px;
+                            ">
+                                EXPLORE COLLECTION
+                            </a>
+                        </div>
+                    `;
 
-                slideLeft.style.top = `-${(slidesLength - 1) * 100}%`;
+                    // Right slide image with overlay
+                    rightSlide.innerHTML += `
+                        <div style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-image: url('${collection.image}');
+                            background-size: cover;
+                            background-position: center;
+                            opacity: ${index === 0 ? 1 : 0};
+                            transition: opacity 1s ease-in-out;
+                        "></div>
+                    `;
+                });
 
-                const changeSlide = (direction) => {
-                    const sliderHeight = sliderContainer.clientHeight;
-                    if (direction === 'up') {
-                        activeSlideIndex++;
-                        if (activeSlideIndex > slidesLength - 1) {
-                            activeSlideIndex = 0;
-                        }
-                    } else if (direction === 'down') {
-                        activeSlideIndex--;
-                        if (activeSlideIndex < 0) {
-                            activeSlideIndex = slidesLength - 1;
-                        }
-                    }
+                // Set initial positions
+                leftSlide.style.position = 'absolute';
+                leftSlide.style.top = '0';
+                leftSlide.style.left = '0';
+                leftSlide.style.width = '100%';
+                leftSlide.style.height = '100%';
+                
+                rightSlide.style.position = 'absolute';
+                rightSlide.style.top = '0';
+                rightSlide.style.left = '0';
+                rightSlide.style.width = '100%';
+                rightSlide.style.height = '100%';
 
-                    slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
-                    slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+                // Button click handlers with debounce
+                const debounce = (func, delay) => {
+                    let timeoutId;
+                    return function() {
+                        if (timeoutId) clearTimeout(timeoutId);
+                        timeoutId = setTimeout(() => func.apply(this, arguments), delay);
+                    };
                 };
 
-                upButton.addEventListener('click', () => changeSlide('up'));
-                downButton.addEventListener('click', () => changeSlide('down'));
+                const handleUpClick = debounce(() => changeSlide('up'), 1000);
+                const handleDownClick = debounce(() => changeSlide('down'), 1000);
 
-                // Auto slide every 5 seconds
-                setInterval(() => {
-                    changeSlide('up');
-                }, 5000);
+                upButton.addEventListener('click', handleUpClick);
+                downButton.addEventListener('click', handleDownClick);
+
+                // Handle keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        handleUpClick();
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        handleDownClick();
+                    }
+                });
+
+                // Touch support for mobile
+                let touchStartY = 0;
+                let touchEndY = 0;
+
+                document.querySelector('.slider-container').addEventListener('touchstart', e => {
+                    touchStartY = e.changedTouches[0].screenY;
+                }, false);
+
+                document.querySelector('.slider-container').addEventListener('touchend', e => {
+                    touchEndY = e.changedTouches[0].screenY;
+                    handleSwipe();
+                }, false);
+
+                function handleSwipe() {
+                    if (touchStartY - touchEndY > 50) {
+                        // Swipe up
+                        handleDownClick();
+                    } else if (touchEndY - touchStartY > 50) {
+                        // Swipe down
+                        handleUpClick();
+                    }
+                }
+
+                function changeSlide(direction) {
+                    if (isAnimating) return;
+                    isAnimating = true;
+                    
+                    // Fade out current slide
+                    const currentLeftSlide = document.querySelectorAll('.left-slide .slide-content')[currentSlide];
+                    const currentRightSlide = document.querySelectorAll('.right-slide > div')[currentSlide];
+                    
+                    if (currentLeftSlide) currentLeftSlide.style.opacity = '0';
+                    if (currentRightSlide) currentRightSlide.style.opacity = '0';
+
+                    // Update current slide index
+                    if (direction === 'up') {
+                        currentSlide = (currentSlide + 1) % collections.length;
+                    } else {
+                        currentSlide = (currentSlide - 1 + collections.length) % collections.length;
+                    }
+
+                    // Fade in new slide after a short delay
+                    setTimeout(() => {
+                        const newLeftSlide = document.querySelectorAll('.left-slide .slide-content')[currentSlide];
+                        const newRightSlide = document.querySelectorAll('.right-slide > div')[currentSlide];
+                        
+                        if (newLeftSlide) newLeftSlide.style.opacity = '1';
+                        if (newRightSlide) newRightSlide.style.opacity = '1';
+                        
+                        isAnimating = false;
+                    }, 500);
+                }
+
+                // Auto-rotate slides
+                let slideInterval = setInterval(() => changeSlide('up'), slideDuration);
+
+                // Pause auto-rotate on hover
+                const sliderContainer = document.querySelector('.slider-container');
+                sliderContainer.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+
+                sliderContainer.addEventListener('mouseleave', () => {
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(() => changeSlide('up'), slideDuration);
+                });
+
+                // Initialize animations
+                const animateElements = document.querySelectorAll('[data-animate]');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                            // Optional: Unobserve after animation
+                            // observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                animateElements.forEach(element => {
+                    observer.observe(element);
+                });
+
+                // Add hover animations to cards
+                const cards = document.querySelectorAll('.showcase-card, .expertise-card, .counter-item');
+                cards.forEach(card => {
+                    card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                    card.addEventListener('mouseenter', () => {
+                        card.style.transform = 'translateY(-10px)';
+                        card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'translateY(0)';
+                        card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+                    });
+                });
+
+                // Animate navigation items on page load
+                const navItems = document.querySelectorAll('.nav-link');
+                navItems.forEach((item, index) => {
+                    item.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
+                    item.style.opacity = '0';
+                });
+
+                // Animate hero content
+                const heroContent = document.querySelector('.slide-content');
+                if (heroContent) {
+                    heroContent.style.animation = 'fadeIn 1s ease-out 0.3s forwards';
+                    heroContent.style.opacity = '0';
+                }
             });
         </script>
     </section>
-
-    <style>
-        /* Collections Section Styles */
-        .collections-section {
-            padding: 100px 0;
-            background-color: #f9f9f9;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 600;
-            color: #1a1a1a;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--accent-gold);
-            display: inline-block;
-        }
-        
-        .section-subtitle {
-            font-size: 18px;
-            color: #444;
-            font-style: italic;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .latest-collections-swiper {
-            padding: 20px 0;
-            position: relative;
-        }
-        
-        .collection-slide {
-            transition: transform 0.3s ease;
-        }
-        
-        .collection-link {
-            display: block;
-            text-decoration: none;
-            color: #1a1a1a;
-            transition: all 0.3s ease;
-        }
-        
-        .collection-link:hover {
-            transform: translateY(-10px);
-        }
-        
-        .collection-image-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .collection-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .collection-link:hover .collection-image {
-            transform: scale(1.05);
-        }
-        
-        .collection-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 500;
-            text-align: center;
-            margin: 0;
-            padding: 0 15px;
-        }
-        
-        .view-all-collections {
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .view-all-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: transparent;
-            color: #1a1a1a;
-            border: 1px solid #1a1a1a;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        
-        .view-all-btn:hover {
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
-        
-        /* Swiper Navigation */
-        .latest-collections-swiper .swiper-button-prev,
-        .latest-collections-swiper .swiper-button-next {
-            color: #1a1a1a;
-            background: rgba(255, 255, 255, 0.9);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .latest-collections-swiper .swiper-button-prev:hover,
-        .latest-collections-swiper .swiper-button-next:hover {
-            background: #1a1a1a;
-            color: #ffffff;
-        }
-        
-        .latest-collections-swiper .swiper-button-prev {
-            left: 20px;
-        }
-        
-        .latest-collections-swiper .swiper-button-next {
-            right: 20px;
-        }
-        
-        .latest-collections-swiper .swiper-button-prev:after,
-        .latest-collections-swiper .swiper-button-next:after {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 32px;
-                padding-bottom: 10px;
-            }
             
-            .section-subtitle {
-                font-size: 15px;
-            }
-            
-            .collection-image {
-                height: 250px;
-            }
-            
-            .latest-collections-swiper .swiper-button-prev,
-            .latest-collections-swiper .swiper-button-next {
-                width: 40px;
-                height: 40px;
-            }
         }
     </style>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // Intersection Observer for scroll animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const animateElements = document.querySelectorAll('[data-animate]');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                        // Optional: Unobserve after animation
-                        // observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            animateElements.forEach(element => {
-                observer.observe(element);
-            });
-
-            // Add hover animations to cards
-            const cards = document.querySelectorAll('.showcase-card, .expertise-card, .counter-item');
-            cards.forEach(card => {
-                card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-10px)';
-                    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0)';
-                    card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
-                });
-            });
-
-            // Animate navigation items on page load
-            const navItems = document.querySelectorAll('.nav-link');
-            navItems.forEach((item, index) => {
-                item.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s forwards`;
-                item.style.opacity = '0';
-            });
-
-            // Animate hero content
-            const heroContent = document.querySelector('.slide-content');
-            if (heroContent) {
-                heroContent.style.animation = 'fadeIn 1s ease-out 0.3s forwards';
-                heroContent.style.opacity = '0';
-            }
-        });
-    </script>
     <script>
         // Get DOM elements first - using headerElement that was already defined
         const topBar = document.querySelector('.top-bar') || headerElement; // Fallback to header if top-bar not found
