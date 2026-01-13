@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUN Exim India - Global Trade Excellence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         /* Animation Keyframes */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideInLeft {
-            from { 
+            from {
                 opacity: 0;
                 transform: translateX(-50px);
             }
-            to { 
+
+            to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
 
         @keyframes slideInRight {
-            from { 
+            from {
                 opacity: 0;
                 transform: translateX(50px);
             }
-            to { 
+
+            to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
 
         @keyframes slideInUp {
-            from { 
+            from {
                 opacity: 0;
                 transform: translateY(50px);
             }
-            to { 
+
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
         @keyframes scaleIn {
-            from { 
+            from {
                 opacity: 0;
                 transform: scale(0.9);
             }
-            to { 
+
+            to {
                 opacity: 1;
                 transform: scale(1);
             }
@@ -80,10 +92,21 @@
             animation: scaleIn 0.8s ease-out forwards;
         }
 
-        .delayed-1 { animation-delay: 0.2s; }
-        .delayed-2 { animation-delay: 0.4s; }
-        .delayed-3 { animation-delay: 0.6s; }
-        .delayed-4 { animation-delay: 0.8s; }
+        .delayed-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delayed-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delayed-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delayed-4 {
+            animation-delay: 0.8s;
+        }
 
         /* Watermark Styles */
         .watermark {
@@ -332,7 +355,7 @@
             min-height: 700px;
             overflow: hidden;
         }
-        
+
         .hero-slide-image {
             position: absolute;
             top: 0;
@@ -366,25 +389,24 @@
         }
 
         .slide-overlay {
-        position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(to bottom, 
-            rgba(0, 0, 0, 0.6) 0%, 
-            rgba(0, 0, 0, 0.2) 50%, 
-            rgba(0, 0, 0, 0.3) 100%
-        ),
-        linear-gradient(to right, 
-            rgba(0, 0, 0, 0.3), 
-            rgba(0, 0, 0, 0.1)
-        ),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
-    mix-blend-mode: multiply;
-    z-index: 2; /* Ensure it's above the image but below text */
-}
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.6) 0%,
+                    rgba(0, 0, 0, 0.2) 50%,
+                    rgba(0, 0, 0, 0.3) 100%),
+                linear-gradient(to right,
+                    rgba(0, 0, 0, 0.3),
+                    rgba(0, 0, 0, 0.1)),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+            z-index: 2;
+            /* Ensure it's above the image but below text */
+        }
 
         .slide-content {
             position: absolute;
@@ -592,7 +614,7 @@
             position: relative;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .about-image {
@@ -617,7 +639,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .badge-content {
@@ -727,20 +749,20 @@
         }
 
         .rotating-text {
-
-/* Showcase Section */
-.showcase-section {
-    padding: 100px 0;
-    background: var(--soft-gray);
-    overflow: hidden;
-}
-
-.showcase-header {
-    margin-bottom: 70px;
-}
             letter-spacing: 3px;
             fill: var(--accent-gold);
             text-transform: uppercase;
+        }
+
+        /* Showcase Section */
+        .showcase-section {
+            padding: 100px 0;
+            background: var(--soft-gray);
+            overflow: hidden;
+        }
+
+        .showcase-header {
+            margin-bottom: 70px;
         }
 
         .about-content {
@@ -1034,11 +1056,25 @@
         }
 
         /* Staggered animation delays for cards */
-        .showcase-card:nth-child(1) { transition-delay: 0s; }
-        .showcase-card:nth-child(2) { transition-delay: 0.1s; }
-        .showcase-card:nth-child(3) { transition-delay: 0.2s; }
-        .showcase-card:nth-child(4) { transition-delay: 0.3s; }
-        .showcase-card:nth-child(5) { transition-delay: 0.4s; }
+        .showcase-card:nth-child(1) {
+            transition-delay: 0s;
+        }
+
+        .showcase-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .showcase-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .showcase-card:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        .showcase-card:nth-child(5) {
+            transition-delay: 0.4s;
+        }
 
         /* Responsive for Showcase Section */
         @media (max-width: 1024px) {
@@ -1146,7 +1182,7 @@
             transform: translate(-50%, -50%);
             font-size: 300px;
             font-weight: 900;
-            color: rgba(0,0,0,0.02);
+            color: rgba(0, 0, 0, 0.02);
             white-space: nowrap;
             z-index: 1;
             pointer-events: none;
@@ -1164,9 +1200,9 @@
 
         .expertise-left {
             padding: 40px;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .section-label {
@@ -1252,16 +1288,16 @@
         .expertise-right {
             position: relative;
             padding: 40px;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .expertise-image {
             width: 100%;
             height: auto;
             border-radius: 2px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
             transition: transform 0.5s ease;
         }
 
@@ -1452,7 +1488,7 @@
             .main-nav {
                 gap: 15px;
             }
-            
+
             .nav-link {
                 font-size: 12px;
             }
@@ -1471,7 +1507,7 @@
                 padding: 12px 20px;
                 flex-wrap: wrap;
             }
-            
+
             .logo-title {
                 font-size: 20px;
                 letter-spacing: 2px;
@@ -1480,7 +1516,7 @@
             .logo-subtitle {
                 font-size: 6px;
             }
-            
+
             .main-nav {
                 order: 2;
                 margin: 10px -10px 0;
@@ -1488,11 +1524,11 @@
                 justify-content: space-around;
                 gap: 8px;
             }
-            
+
             .logo {
                 margin: 0 10px;
             }
-            
+
             .top-actions {
                 margin-left: auto;
             }
@@ -1628,11 +1664,11 @@
             .nav {
                 display: none;
             }
-            
+
             .mobile-toggle {
                 display: flex;
             }
-            
+
             .header-content {
                 position: relative;
                 padding: 20px 25px;
@@ -1640,6 +1676,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header fade-in" id="header">
@@ -1650,124 +1687,128 @@
                 <span></span>
                 <span></span>
             </button>
-            
+
             <!-- Logo -->
-            <div class="logo">
+            <div classs="logo">
                 <div class="logo-title" style="color: #ffffff;">SUN Exim</div>
                 <div class="logo-subtitle" style="color: #ffffff;">India</div>
             </div>
 
             <!-- Desktop Navigation -->
             <nav class="nav">
-                <a href="#products" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out forwards fadeIn; opacity: 0;">Products</a>
-                <a href="#services" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.1s forwards fadeIn; opacity: 0;">Services</a>
-                <a href="#solutions" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.2s forwards fadeIn; opacity: 0;">Trade Solutions</a>
-                <a href="#partners" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.3s forwards fadeIn; opacity: 0;">Partners</a>
-                <a href="#downloads" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.4s forwards fadeIn; opacity: 0;">Downloads</a>
-                <a href="#professional" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.5s forwards fadeIn; opacity: 0;">Professional</a>
-                <a href="#contact" class="nav-link" style="color: #ffffff; animation: 0.5s ease-out 0.6s forwards fadeIn; opacity: 0;">Contact</a>
+                <a href="index.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out forwards fadeIn; opacity: 0;">Home</a>
+                <a href="collection.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.1s forwards fadeIn; opacity: 0;">Collection</a>
+                <a href="about.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.2s forwards fadeIn; opacity: 0;">About</a>
+                <a href="catalogue.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.3s forwards fadeIn; opacity: 0;">Downloads</a>
+                <a href="#professional" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.4s forwards fadeIn; opacity: 0;">Professional</a>
+                <a href="contact.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.5s forwards fadeIn; opacity: 0;">Contact</a>
             </nav>
         </div>
     </header>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#products">Products</a>
-        <a href="#services">Services</a>
-        <a href="#solutions">Trade Solutions</a>
-        <a href="#partners">Partners</a>
-        <a href="#downloads">Downloads</a>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="catalogue.html">Downloads</a>
         <a href="#professional">Professional</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
     </div>
 
     <script>
-    // Scroll effect - transparent to white
-    const headerElement = document.getElementById('header');
+        // Scroll effect - transparent to white
+        const headerElement = document.getElementById('header');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            headerElement.classList.add('scrolled');
-        } else {
-            headerElement.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileToggle = document.getElementById('mobileToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const body = document.body;
-        const header = document.getElementById('header');
-
-        // Toggle mobile menu
-        mobileToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            this.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-            
-            // Add/remove scrolled class to header when mobile menu is open
-            if (mobileMenu.classList.contains('active')) {
-                header.classList.add('scrolled');
-            } else if (window.scrollY <= 50) {
-                header.classList.remove('scrolled');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                headerElement.classList.add('scrolled');
+            } else {
+                headerElement.classList.remove('scrolled');
             }
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-                mobileToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                body.style.overflow = '';
-                
-                if (window.scrollY <= 50) {
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const body = document.body;
+            const header = document.getElementById('header');
+
+            // Toggle mobile menu
+            mobileToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+
+                // Add/remove scrolled class to header when mobile menu is open
+                if (mobileMenu.classList.contains('active')) {
+                    header.classList.add('scrolled');
+                } else if (window.scrollY <= 50) {
                     header.classList.remove('scrolled');
                 }
-            }
-        });
-
-        // Close mobile menu when clicking a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Only prevent default if it's an anchor link
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        // Close menu
-                        mobileToggle.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                        body.style.overflow = '';
-                        
-                        // Smooth scroll to section
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80, // Adjust for header height
-                            behavior: 'smooth'
-                        });
-                    }
-                }
             });
-        });
 
-        // Handle window resize
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                if (window.innerWidth > 992) {
-                    // If window is resized to desktop view, ensure mobile menu is closed
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
                     mobileToggle.classList.remove('active');
                     mobileMenu.classList.remove('active');
                     body.style.overflow = '';
+
+                    if (window.scrollY <= 50) {
+                        header.classList.remove('scrolled');
+                    }
                 }
-            }, 250);
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Only prevent default if it's an anchor link
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            // Close menu
+                            mobileToggle.classList.remove('active');
+                            mobileMenu.classList.remove('active');
+                            body.style.overflow = '';
+
+                            // Smooth scroll to section
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80, // Adjust for header height
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth > 992) {
+                        // If window is resized to desktop view, ensure mobile menu is closed
+                        mobileToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        body.style.overflow = '';
+                    }
+                }, 250);
+            });
         });
-    });
     </script>
 
     <!-- Banner Section with Swiper -->
@@ -1776,12 +1817,8 @@
             <div class="swiper-wrapper">
                 <!-- Slide 1 - Porcelain Tiles -->
                 <div class="swiper-slide">
-                    <img 
-                        src="https://www.kajariaceramics.com/storage/concept-picture/bianco-onduluto-n.jpg" 
-                        alt="Luxury Porcelain Tiles"
-                        loading="eager"
-                        class="hero-slide-image"
-                    >
+                    <img src="https://www.kajariaceramics.com/storage/concept-picture/bianco-onduluto-n.jpg"
+                        alt="Luxury Porcelain Tiles" loading="eager" class="hero-slide-image">
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Luxury Porcelain Tiles</div>
@@ -1792,12 +1829,8 @@
 
                 <!-- Slide 2 - Ceramic Tiles -->
                 <div class="swiper-slide">
-                    <img 
-                        src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80" 
-                        alt="Premium Ceramic Tiles"
-                        loading="eager"
-                        class="hero-slide-image"
-                    >
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80"
+                        alt="Premium Ceramic Tiles" loading="eager" class="hero-slide-image">
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Premium Ceramic Tiles</div>
@@ -1808,12 +1841,8 @@
 
                 <!-- Slide 3 - Mosaic Tiles -->
                 <div class="swiper-slide">
-                    <img 
-                        src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=1920&q=80" 
-                        alt="Exquisite Mosaic Tiles"
-                        loading="eager"
-                        class="hero-slide-image"
-                    >
+                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=1920&q=80"
+                        alt="Exquisite Mosaic Tiles" loading="eager" class="hero-slide-image">
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Exquisite Mosaic Tiles</div>
@@ -1821,15 +1850,11 @@
                         <a href="#mosaic" class="discover-btn">Discover Designs</a>
                     </div>
                 </div>
-                
+
                 <!-- Slide 4 - Outdoor Tiles -->
                 <div class="swiper-slide">
-                    <img 
-                        src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80" 
-                        alt="Outdoor & Patio Tiles"
-                        loading="eager"
-                        class="hero-slide-image"
-                    >
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80"
+                        alt="Outdoor & Patio Tiles" loading="eager" class="hero-slide-image">
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
                         <div class="slide-title">Outdoor & Patio Tiles</div>
@@ -1850,27 +1875,32 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">PORCELAIN</text>
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28"
+                                font-weight="300" letter-spacing="4" fill="currentColor">PORCELAIN</text>
                         </svg>
                     </div>
                     <div class="swiper-slide">
                         <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">CERAMIC</text>
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28"
+                                font-weight="300" letter-spacing="4" fill="currentColor">CERAMIC</text>
                         </svg>
                     </div>
                     <div class="swiper-slide">
                         <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">MOSAIC</text>
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28"
+                                font-weight="300" letter-spacing="4" fill="currentColor">MOSAIC</text>
                         </svg>
                     </div>
                     <div class="swiper-slide">
                         <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">OUTDOOR</text>
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28"
+                                font-weight="300" letter-spacing="4" fill="currentColor">OUTDOOR</text>
                         </svg>
                     </div>
                     <div class="swiper-slide">
                         <svg class="thumb-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28" font-weight="300" letter-spacing="4" fill="currentColor">PREMIUM</text>
+                            <text x="100" y="45" text-anchor="middle" font-family="Playfair Display" font-size="28"
+                                font-weight="300" letter-spacing="4" fill="currentColor">PREMIUM</text>
                         </svg>
                     </div>
                 </div>
@@ -1884,11 +1914,9 @@
         <div class="container">
             <div class="about-grid" data-animate="fade">
                 <div class="about-image-wrapper">
-                    <img src="https://res.cloudinary.com/dcqre7nop/image/upload/v1768108204/SUN_doc09c.png" 
-                         alt="SUN Exim Office" 
-                         class="about-image"
-                         loading="lazy"
-                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="https://res.cloudinary.com/dcqre7nop/image/upload/v1768108204/SUN_doc09c.png"
+                        alt="SUN Exim Office" class="about-image" loading="lazy"
+                        style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <div class="experience-badge">
                         <div class="badge-content">
                             <div class="badge-number">5+</div>
@@ -1896,7 +1924,7 @@
                         </div>
                         <svg class="rotating-text" viewBox="0 0 200 200">
                             <defs>
-                                <path id="circle" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"/>
+                                <path id="circle" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
                             </defs>
                             <text class="circle-text">
                                 <textPath href="#circle">
@@ -1914,8 +1942,13 @@
                     </div>
                     <h2 class="about-title">About <span>SUN Exim</span>: Premier Tiles Export Solutions</h2>
                     <div class="about-text">
-                        <p>At SUN Exim India, we specialize in delivering world-class ceramic and porcelain tiles to international markets. Since our establishment, we have built a reputation for excellence in tile exports, combining traditional craftsmanship with modern manufacturing techniques.</p>
-                        <p>Our extensive collection features premium vitrified tiles, designer ceramics, and innovative surface solutions. From timeless marble effects to contemporary geometric patterns, we ensure every tile meets the highest standards of quality and durability for our global clientele.</p>
+                        <p>At SUN Exim India, we specialize in delivering world-class ceramic and porcelain tiles to
+                            international markets. Since our establishment, we have built a reputation for excellence in
+                            tile exports, combining traditional craftsmanship with modern manufacturing techniques.</p>
+                        <p>Our extensive collection features premium vitrified tiles, designer ceramics, and innovative
+                            surface solutions. From timeless marble effects to contemporary geometric patterns, we
+                            ensure every tile meets the highest standards of quality and durability for our global
+                            clientele.</p>
                     </div>
                     <a href="#" class="know-more-btn">
                         <span>Know More</span>
@@ -1930,87 +1963,149 @@
     <section class="showcase-section" style="padding: 100px 0; background: #fff; position: relative; overflow: hidden;">
         <div class="watermark" style="color: rgba(0, 0, 0, 0.02);">SUN</div>
         <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
-            <div class="showcase-header slide-in-up" data-animate="up" style="text-align: center; margin-bottom: 60px; position: relative; z-index: 2;">
-                <div class="section-label" style="display: inline-flex; align-items: center; margin-bottom: 20px; position: relative;">
-                    <span class="label-dot" style="display: inline-block; width: 8px; height: 8px; background: #b8996f; border-radius: 50%; margin-right: 10px;"></span>
-                    <span class="label-text" style="font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b8996f; position: relative; z-index: 1;">Showcase</span>
+            <div class="showcase-header slide-in-up" data-animate="up"
+                style="text-align: center; margin-bottom: 60px; position: relative; z-index: 2;">
+                <div class="section-label"
+                    style="display: inline-flex; align-items: center; margin-bottom: 20px; position: relative;">
+                    <span class="label-dot"
+                        style="display: inline-block; width: 8px; height: 8px; background: #b8996f; border-radius: 50%; margin-right: 10px;"></span>
+                    <span class="label-text"
+                        style="font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b8996f; position: relative; z-index: 1;">Showcase</span>
                 </div>
-                <h2 class="showcase-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3; position: relative; z-index: 1;">
-                    <span style="display: block; white-space: normal;">Where Our <span style="color: #b8996f; position: relative; display: inline-block;">
-                        <span style="position: relative; z-index: 1;">Premium Tiles</span>
-                        <span style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: 0;"></span>
-                    </span></span>
+                <h2 class="showcase-title"
+                    style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3; position: relative; z-index: 1;">
+                    <span style="display: block; white-space: normal;">Where Our <span
+                            style="color: #b8996f; position: relative; display: inline-block;">
+                            <span style="position: relative; z-index: 1;">Premium Tiles</span>
+                            <span
+                                style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: 0;"></span>
+                        </span></span>
                     <span style="display: block; white-space: normal; margin-top: 5px;">Bring Spaces to Life</span>
                 </h2>
-                <p class="showcase-description" style="max-width: 700px; margin: 0 auto 40px; font-size: 16px; line-height: 1.8; color: #666; position: relative; z-index: 1;">
-                    From elegant living rooms to busy airports, our tiles enhance every space with style and strength. Perfect for homes, businesses, and public areas, they combine beauty, durability, and lasting performance.
+                <p class="showcase-description"
+                    style="max-width: 700px; margin: 0 auto 40px; font-size: 16px; line-height: 1.8; color: #666; position: relative; z-index: 1;">
+                    From elegant living rooms to busy airports, our tiles enhance every space with style and strength.
+                    Perfect for homes, businesses, and public areas, they combine beauty, durability, and lasting
+                    performance.
                 </p>
             </div>
 
-            <div class="showcase-grid" data-animate="fade" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px;">
+            <div class="showcase-grid" data-animate="fade"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px;">
                 <!-- Card 1 -->
-                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
-                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
-                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
-                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
-                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">01</span>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Hotels & Resorts</h3>
-                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Premium tiles that create luxurious and welcoming environments for guests worldwide.</p>
+                <div class="showcase-card"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;">
+                        </div>
+                        <div class="card-content"
+                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number"
+                                style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">01</span>
+                            <h3
+                                style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">
+                                Hotels & Resorts</h3>
+                            <p
+                                style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">
+                                Premium tiles that create luxurious and welcoming environments for guests worldwide.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
-                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
-                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
-                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
-                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">02</span>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Healthcare Facilities</h3>
-                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Hygienic and durable tiles designed for medical and wellness environments.</p>
+                <div class="showcase-card"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;">
+                        </div>
+                        <div class="card-content"
+                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number"
+                                style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">02</span>
+                            <h3
+                                style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">
+                                Healthcare Facilities</h3>
+                            <p
+                                style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">
+                                Hygienic and durable tiles designed for medical and wellness environments.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
-                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
-                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
-                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
-                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">03</span>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Corporate Offices</h3>
-                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Sophisticated tiles that enhance productivity and professional aesthetics.</p>
+                <div class="showcase-card"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;">
+                        </div>
+                        <div class="card-content"
+                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number"
+                                style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">03</span>
+                            <h3
+                                style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">
+                                Corporate Offices</h3>
+                            <p
+                                style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">
+                                Sophisticated tiles that enhance productivity and professional aesthetics.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
-                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
-                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
-                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
-                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">04</span>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Outdoor Living</h3>
-                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Weather-resistant tiles perfect for outdoor living and entertainment spaces.</p>
+                <div class="showcase-card"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;">
+                        </div>
+                        <div class="card-content"
+                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number"
+                                style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">04</span>
+                            <h3
+                                style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">
+                                Outdoor Living</h3>
+                            <p
+                                style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">
+                                Weather-resistant tiles perfect for outdoor living and entertainment spaces.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="showcase-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
-                    <div class="card-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
-                        <div class="card-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;"></div>
-                        <div class="card-content" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
-                            <span class="card-number" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">05</span>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">Elegant Interiors</h3>
-                            <p style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">Transform residential spaces with our stunning designer tile collections.</p>
+                <div class="showcase-card"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 400px; position: relative;">
+                    <div class="card-image"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea'); background-size: cover; background-position: center; transition: transform 0.5s ease;">
+                        <div class="card-overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%); opacity: 0.9; transition: opacity 0.3s ease;">
+                        </div>
+                        <div class="card-content"
+                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; color: #fff; transform: translateY(20px); transition: transform 0.5s ease;">
+                            <span class="card-number"
+                                style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; font-size: 14px; font-weight: 600; color: #b8996f; margin-bottom: 15px; opacity: 0; transform: translateY(10px); transition: all 0.5s ease 0.1s; position: relative; z-index: 2;">05</span>
+                            <h3
+                                style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 15px; line-height: 1.3;">
+                                Elegant Interiors</h3>
+                            <p
+                                style="font-size: 14px; line-height: 1.6; opacity: 0.9; margin: 0; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.2s;">
+                                Transform residential spaces with our stunning designer tile collections.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 50px;">
-                <a href="#" style="display: inline-flex; align-items: center; background: #b8996f; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
+                <a href="#"
+                    style="display: inline-flex; align-items: center; background: #b8996f; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
                     <span style="margin-right: 10px;">Explore our Products</span>
                     <span style="font-size: 18px;">→</span>
                 </a>
@@ -2025,9 +2120,9 @@
             <div class="gradient-flow"></div>
             <div class="bg-image-overlay"></div>
         </div>
-        
+
         <h2 class="watermark-text">sun exim</h2>
-        
+
         <div class="container">
             <div class="expertise-grid" style="display: flex; align-items: center;">
                 <div class="expertise-content" style="flex: 1;">
@@ -2035,11 +2130,16 @@
                         <span class="label-dot"></span>
                         <span class="label-text">Our Expertise</span>
                     </div>
-                    
-                    <h2 class="expertise-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3;">Global Expertise in <span style="color: #b8996f;">Premium Tile</span> Manufacturing</h2>
-                    
-                    <p class="expertise-description" style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 40px; max-width: 600px;">With years of industry leadership, SUN Exim India blends craftsmanship, innovation, and market insight to deliver tiles that set new benchmarks in quality and design.</p>
-                    
+
+                    <h2 class="expertise-title"
+                        style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin-bottom: 20px; line-height: 1.3;">
+                        Global Expertise in <span style="color: #b8996f;">Premium Tile</span> Manufacturing</h2>
+
+                    <p class="expertise-description"
+                        style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 40px; max-width: 600px;">
+                        With years of industry leadership, SUN Exim India blends craftsmanship, innovation, and market
+                        insight to deliver tiles that set new benchmarks in quality and design.</p>
+
                     <div class="progress-bars">
                         <div class="progress-item">
                             <div class="progress-header">
@@ -2050,7 +2150,7 @@
                                 <div class="progress-fill" data-progress="95"></div>
                             </div>
                         </div>
-                        
+
                         <div class="progress-item">
                             <div class="progress-header">
                                 <span class="progress-title">Global Export Capability</span>
@@ -2060,7 +2160,7 @@
                                 <div class="progress-fill" data-progress="90"></div>
                             </div>
                         </div>
-                        
+
                         <div class="progress-item">
                             <div class="progress-header">
                                 <span class="progress-title">Design Innovation</span>
@@ -2072,63 +2172,62 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="expertise-image-container" style="flex: 1; padding-left: 50px;">
-                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80" 
-                         alt="Manufacturing Facility" 
-                         class="expertise-image"
-                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
-                         loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80"
+                        alt="Manufacturing Facility" class="expertise-image"
+                        style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
+                        loading="lazy">
                 </div>
             </div>
         </div>
-        
+
         <style>
             @media (max-width: 768px) {
                 .expertise-grid {
                     flex-direction: column !important;
                 }
-                
+
                 .expertise-content {
                     order: 1;
                     width: 100%;
                     padding: 0 20px 30px;
                 }
-                
+
                 .expertise-image-container {
                     order: 2;
                     width: 100%;
                     padding: 0 20px !important;
                     margin-top: 30px;
                 }
-                
+
                 .expertise-title {
                     font-size: 32px !important;
                     text-align: center;
                 }
-                
+
                 .expertise-description {
                     text-align: center;
                     margin: 0 auto 30px !important;
                 }
-                
+
                 .section-label {
                     justify-content: center;
                     margin-bottom: 20px;
                 }
-                
+
                 .progress-item {
                     margin-bottom: 20px;
                     opacity: 0;
                     transform: translateY(20px);
                     transition: opacity 0.6s ease, transform 0.6s ease;
                 }
-                
+
                 .progress-item.visible {
                     opacity: 1;
                     transform: translateY(0);
                 }
-                
+
                 .progress-fill {
                     width: 0;
                     transition: width 1.5s ease 0.3s;
@@ -2138,7 +2237,7 @@
 
         <script>
             // Intersection Observer for scroll animations and progress bars
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 // Animate progress bars on mobile when they come into view
                 const progressItems = document.querySelectorAll('.progress-item');
                 const progressObserver = new IntersectionObserver((entries) => {
@@ -2161,7 +2260,7 @@
 
                 // Existing animation code
                 const animateElements = document.querySelectorAll('[data-animate]');
-                
+
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -2211,15 +2310,20 @@
     </section>
 
     <!-- Collections Slider Section -->
-    <section class="collections-section" style="position: relative; overflow: hidden; padding: 100px 0; background-color: #f9f9f9;">
+    <section class="collections-section"
+        style="position: relative; overflow: hidden; padding: 100px 0; background-color: #f9f9f9;">
         <div class="watermark" style="color: rgba(0, 0, 0, 0.02);">SUN</div>
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-                <h2 class="section-title" style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin: 0 auto 20px; display: inline-block; position: relative;">
-                    <span style="position: relative; z-index: 1; padding: 0 20px; background: #f9f9f9;">Our Premium Collections</span>
-                    <span style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: -1;"></span>
+                <h2 class="section-title"
+                    style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin: 0 auto 20px; display: inline-block; position: relative;">
+                    <span style="position: relative; z-index: 1; padding: 0 20px; background: #f9f9f9;">Our Premium
+                        Collections</span>
+                    <span
+                        style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: -1;"></span>
                 </h2>
-                <p class="section-subtitle" style="font-size: 18px; color: #666; max-width: 700px; margin: 0 auto; font-style: italic; line-height: 1.6;">
+                <p class="section-subtitle"
+                    style="font-size: 18px; color: #666; max-width: 700px; margin: 0 auto; font-style: italic; line-height: 1.6;">
                     Explore our exclusive tile collections that redefine elegance and durability
                 </p>
             </div>
@@ -2252,7 +2356,7 @@
                 overflow: hidden;
                 margin-top: 40px;
             }
-            
+
             .slider-container .left-slide,
             .slider-container .right-slide {
                 transition: opacity 1.5s ease-in-out;
@@ -2267,7 +2371,7 @@
                 transition: transform 0.5s ease-in-out;
             }
 
-            .left-slide > div {
+            .left-slide>div {
                 height: 100%;
                 width: 100%;
                 display: flex;
@@ -2300,7 +2404,7 @@
                 transition: transform 0.5s ease-in-out;
             }
 
-            .right-slide > div {
+            .right-slide>div {
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center center;
@@ -2345,7 +2449,7 @@
                     flex-direction: column;
                     margin-top: 20px;
                 }
-                
+
                 .left-slide {
                     position: relative;
                     width: 100%;
@@ -2354,25 +2458,25 @@
                     order: 2;
                     background: #fff;
                     padding: 20px 0;
-                    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+                    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
                 }
-                
-                .left-slide > div {
+
+                .left-slide>div {
                     padding: 20px !important;
                     text-align: center;
                     height: auto;
                 }
-                
+
                 .left-slide h1 {
                     font-size: 22px !important;
                     margin-bottom: 10px !important;
                 }
-                
+
                 .left-slide p {
                     font-size: 15px !important;
                     margin-bottom: 0 !important;
                 }
-                
+
                 .right-slide {
                     position: relative;
                     left: 0;
@@ -2380,12 +2484,12 @@
                     height: 50vh;
                     order: 1;
                 }
-                
-                .right-slide > div {
+
+                .right-slide>div {
                     background-size: cover;
                     background-position: center;
                 }
-                
+
                 .action-buttons {
                     position: absolute;
                     bottom: 20px;
@@ -2397,21 +2501,21 @@
                     z-index: 10;
                     order: 3;
                 }
-                
+
                 .action-buttons button {
                     position: static;
                     transform: none !important;
                     width: 50px;
                     height: 50px;
                     border-radius: 50% !important;
-                    background: rgba(255,255,255,0.9) !important;
-                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    background: rgba(255, 255, 255, 0.9) !important;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     margin: 0;
                 }
-                
+
                 .action-buttons .up-button,
                 .action-buttons .down-button {
                     position: static;
@@ -2428,25 +2532,25 @@
                 padding: 100px 0;
                 background-color: #f9f9f9;
             }
-            
+
             .section-header {
                 text-align: center;
                 margin-bottom: 50px;
             }
-            
+
             .section-title {
                 font-family: 'Playfair Display', serif;
                 font-size: 42px;
                 font-weight: 600;
                 color: #1a1a1a;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
                 letter-spacing: 0.5px;
                 margin-bottom: 20px;
                 padding-bottom: 15px;
                 border-bottom: 2px solid var(--accent-gold);
                 display: inline-block;
             }
-            
+
             .section-subtitle {
                 font-size: 18px;
                 color: #444;
@@ -2456,27 +2560,27 @@
                 margin: 0 auto;
                 padding: 0 20px;
             }
-            
+
             .latest-collections-swiper {
                 padding: 20px 0;
                 position: relative;
             }
-            
+
             .collection-slide {
                 transition: transform 0.3s ease;
             }
-            
+
             .collection-link {
                 display: block;
                 text-decoration: none;
                 color: #1a1a1a;
                 transition: all 0.3s ease;
             }
-            
+
             .collection-link:hover {
                 transform: translateY(-10px);
             }
-            
+
             .collection-image-wrapper {
                 position: relative;
                 overflow: hidden;
@@ -2484,18 +2588,18 @@
                 margin-bottom: 20px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
-            
+
             .collection-image {
                 width: 100%;
                 height: 300px;
                 object-fit: cover;
                 transition: transform 0.5s ease;
             }
-            
+
             .collection-link:hover .collection-image {
                 transform: scale(1.05);
             }
-            
+
             .collection-title {
                 font-family: 'Playfair Display', serif;
                 font-size: 22px;
@@ -2504,12 +2608,12 @@
                 margin: 0;
                 padding: 0 15px;
             }
-            
+
             .view-all-collections {
                 text-align: center;
                 margin-top: 50px;
             }
-            
+
             .view-all-btn {
                 display: inline-block;
                 padding: 12px 30px;
@@ -2523,12 +2627,12 @@
                 text-transform: uppercase;
                 transition: all 0.3s ease;
             }
-            
+
             .view-all-btn:hover {
                 background-color: #1a1a1a;
                 color: #ffffff;
             }
-            
+
             /* Swiper Navigation */
             .latest-collections-swiper .swiper-button-prev,
             .latest-collections-swiper .swiper-button-next {
@@ -2540,27 +2644,27 @@
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 transition: all 0.3s ease;
             }
-            
+
             .latest-collections-swiper .swiper-button-prev:hover,
             .latest-collections-swiper .swiper-button-next:hover {
                 background: #1a1a1a;
                 color: #ffffff;
             }
-            
+
             .latest-collections-swiper .swiper-button-prev {
                 left: 20px;
             }
-            
+
             @media (max-width: 768px) {
                 .section-title {
                     font-size: 32px;
                     padding-bottom: 10px;
                 }
-                
+
                 .section-subtitle {
                     font-size: 15px;
                 }
-                
+
                 /* Collection image and swiper navigation styles are defined in the main styles above */
             }
         </style>
@@ -2592,7 +2696,7 @@
             ];
 
             // Initialize the slider
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const leftSlide = document.querySelector('.left-slide');
                 const rightSlide = document.querySelector('.right-slide');
                 const upButton = document.querySelector('.up-button');
@@ -2664,7 +2768,7 @@
                 leftSlide.style.left = '0';
                 leftSlide.style.width = '100%';
                 leftSlide.style.height = '100%';
-                
+
                 rightSlide.style.position = 'absolute';
                 rightSlide.style.top = '0';
                 rightSlide.style.left = '0';
@@ -2674,7 +2778,7 @@
                 // Button click handlers with debounce
                 const debounce = (func, delay) => {
                     let timeoutId;
-                    return function() {
+                    return function () {
                         if (timeoutId) clearTimeout(timeoutId);
                         timeoutId = setTimeout(() => func.apply(this, arguments), delay);
                     };
@@ -2723,11 +2827,11 @@
                 function changeSlide(direction) {
                     if (isAnimating) return;
                     isAnimating = true;
-                    
+
                     // Fade out current slide
                     const currentLeftSlide = document.querySelectorAll('.left-slide .slide-content')[currentSlide];
                     const currentRightSlide = document.querySelectorAll('.right-slide > div')[currentSlide];
-                    
+
                     if (currentLeftSlide) currentLeftSlide.style.opacity = '0';
                     if (currentRightSlide) currentRightSlide.style.opacity = '0';
 
@@ -2742,10 +2846,10 @@
                     setTimeout(() => {
                         const newLeftSlide = document.querySelectorAll('.left-slide .slide-content')[currentSlide];
                         const newRightSlide = document.querySelectorAll('.right-slide > div')[currentSlide];
-                        
+
                         if (newLeftSlide) newLeftSlide.style.opacity = '1';
                         if (newRightSlide) newRightSlide.style.opacity = '1';
-                        
+
                         isAnimating = false;
                     }, 500);
                 }
@@ -2766,7 +2870,7 @@
 
                 // Initialize animations
                 const animateElements = document.querySelectorAll('[data-animate]');
-                
+
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -2814,8 +2918,8 @@
             });
         </script>
     </section>
-            
-        }
+
+    }
     </style>
 
     <script>
@@ -2825,7 +2929,7 @@
         // Define functions before using them
         function updateNavTransparency() {
             if (!topBar) return; // Skip if element not found
-            
+
             if (window.scrollY > 50) {
                 topBar.classList.remove('transparent');
                 topBar.style.background = 'rgba(255, 255, 255, 0.98)';
@@ -2875,10 +2979,10 @@
                 swiper: thumbsSwiper,
             },
             on: {
-                init: function() {
+                init: function () {
                     updateNavTransparency();
                 },
-                slideChange: function() {
+                slideChange: function () {
                     updateNavTransparency();
                 }
             }
@@ -2945,6 +3049,7 @@
         });
     </script>
 </body>
+
 </html>
 
 <!-- Font Awesome for icons -->
@@ -3116,13 +3221,20 @@
         <div class="contact-bg-text">SUN Exim</div>
         <div class="contact-content">
             <div class="contact-icon">
-                <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle pulse" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="animation: pulse 2s infinite;">
+                <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle pulse" viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg" style="animation: pulse 2s infinite;">
                     <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
                 </svg>
-                <span class="fade-in-up" style="display: inline-block; animation: fadeInUp 0.8s ease-out;">Get A Quote</span>
+                <span class="fade-in-up" style="display: inline-block; animation: fadeInUp 0.8s ease-out;">Get A
+                    Quote</span>
             </div>
-            <h2 class="contact-title fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.2s both;">Your Dream Space <span class="highlight-text" style="color: #b8996f; position: relative; display: inline-block;">Deserves</span> the Perfect Tiles</h2>
-            <p class="contact-description fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.4s both;">From contemporary designs to timeless classics, SUN Exim delivers tiles that inspire and transform spaces.</p>
+            <h2 class="contact-title fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.2s both;">Your Dream Space
+                <span class="highlight-text"
+                    style="color: #b8996f; position: relative; display: inline-block;">Deserves</span> the Perfect Tiles
+            </h2>
+            <p class="contact-description fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.4s both;">From
+                contemporary designs to timeless classics, SUN Exim delivers tiles that inspire and transform spaces.
+            </p>
             <a href="#contact" class="contact-button">
                 <span class="button-content">
                     <i class="fas fa-arrow-right"></i>
@@ -3283,7 +3395,8 @@
                 <h2>SUN Exim</h2>
                 <p>GLOBAL TRADING</p>
             </div>
-            <p>Leading the way in global trade with excellence, integrity, and innovation. We connect markets and build lasting relationships through quality products and exceptional service.</p>
+            <p>Leading the way in global trade with excellence, integrity, and innovation. We connect markets and build
+                lasting relationships through quality products and exceptional service.</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -3339,6 +3452,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2025 SUN Exim India. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #b8996f;"></i> by SUN Exim Team</p>
+        <p>&copy; 2025 SUN Exim India. All Rights Reserved. | Designed with <i class="fas fa-heart"
+                style="color: #b8996f;"></i> by SUN Exim Team</p>
     </div>
 </footer>
