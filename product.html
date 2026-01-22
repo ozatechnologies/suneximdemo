@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Sun Ceramic</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f9f9f9; }
+        
+        /* Header */
+        .header { background: rgba(0,0,0,0.9); padding: 20px 40px; color: white; }
+        .header h1 { font-size: 20px; }
+        
+        /* Product Container */
+        .product-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; padding: 40px; border-radius: 10px; }
+        
+        /* Image Gallery */
+        .image-section { position: relative; }
+        .main-image { width: 100%; height: 500px; object-fit: cover; border-radius: 8px; background: #f0f0f0; }
+        .thumbnail-strip { display: flex; gap: 10px; margin-top: 15px; overflow-x: auto; }
+        .thumbnail { width: 80px; height: 80px; object-fit: cover; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .thumbnail.active { border-color: #667eea; }
+        
+        /* Product Info */
+        .product-info h1 { font-size: 32px; margin-bottom: 20px; color: #2c3e50; }
+        .specs { display: grid; gap: 15px; margin-bottom: 25px; }
+        .spec-item { padding: 15px; background: #f8f9fa; border-radius: 5px; }
+        .spec-label { font-size: 12px; color: #7f8c8d; text-transform: uppercase; margin-bottom: 5px; }
+        .spec-value { font-size: 16px; color: #2c3e50; font-weight: 600; }
+        .description { line-height: 1.8; color: #555; margin-bottom: 25px; }
+        
+        /* Navigation Arrows */
+        .navigation { display: flex; justify-content: space-between; margin-top: 30px; gap: 20px; }
+        .nav-btn { flex: 1; padding: 15px; background: #667eea; color: white; text-align: center; border-radius: 5px; cursor: pointer; text-decoration: none; }
+        .nav-btn:hover { background: #5568d3; }
+        .nav-btn.disabled { background: #ccc; pointer-events: none; }
+        
+        /* Loading */
+        .loading { text-align: center; padding: 100px 20px; font-size: 18px; color: #666; }
+        .error { background: #fee; color: #c00; padding: 20px; border-radius: 8px; margin: 40px auto; max-width: 600px; text-align: center; }
+        
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SUN CERAMIC</h1>
+    </div>
+    
+    <div class="product-container" id="productContainer">
+        <div class="loading">Loading product...</div>
+    </div>
+
+    <script>
+        // Get slug from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug');
+        
+        if (!slug) {
+            document.getElementById('productContainer').innerHTML = '<div class="error">No product specified. Add ?slug=product-name to URL</div>';
+        } else {
+            loadProduct(slug);
+        }
+        
+        // Fetch and display product
+        async function loadProduct(slug) {
+            try {
+                const response = await fetch(`api.php?action=product&slug=${slug}`);
+                const data = await response.json();
+                
+                if (data.success && data.product) {
+                    displayProduct(data.product);
+                } else {
+                    document.getElementById('productContainer').innerHTML = '<div class="error">Product not found</div>';
+                }
+            } catch (error) {
+                document.getElementById('productContainer').innerHTML = `<div class="error">Error loading product: ${error.message}</div>`;
+            }
+        }
+        
+        // Display product on page
+        function displayProduct(product) {
+            const container = document.getElementById('productContainer');
+            
+            // Main image
+            const mainImage = product.images && product.images.length > 0 
+                ? product.images[0] 
+                : 'https://via.placeholder.com/500x500?text=No+Image';
+            
+            // Thumbnails
+            let thumbnailsHTML = '';
+            if (product.images && product.images.length > 1) {
+                thumbnailsHTML = '<div class="thumbnail-strip">';
+                product.images.forEach((img, index) => {
+                    thumbnailsHTML += `<img src="${img}" class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeImage('${img}', this)">`;
+                });
+                thumbnailsHTML += '</div>';
+            }
+            
+            // Specs
+            let specsHTML = '';
+            if (product.dimension) {
+                specsHTML += `
+                    <div class="spec-item">
+                        <div class="spec-label">Dimension</div>
+                        <div class="spec-value">${product.dimension}</div>
+                    </div>
+                `;
+            }
+            if (product.thickness) {
+                specsHTML += `
+                    <div class="spec-item">
+                        <div class="spec-label">Thickness</div>
+                        <div class="spec-value">${product.thickness}</div>
+                    </div>
+                `;
+            }
+            if (product.finish) {
+                specsHTML += `
+                    <div class="spec-item">
+                        <div class="spec-label">Finish Type</div>
+                        <div class="spec-value">${product.finish}</div>
+                    </div>
+                `;
+            }
+            if (product.category) {
+                specsHTML += `
+                    <div class="spec-item">
+                        <div class="spec-label">Category</div>
+                        <div class="spec-value">${product.category.name}</div>
+                    </div>
+                `;
+            }
+            
+            // Description
+            const descriptionHTML = product.description 
+                ? `<div class="description"><h3 style="margin-bottom: 10px;">Description</h3><p>${product.description}</p></div>`
+                : '';
+            
+            // Navigation buttons
+            const prevBtn = product.navigation && product.navigation.prev
+                ? `<a href="product.html?slug=${product.navigation.prev}" class="nav-btn">← Previous Product</a>`
+                : `<span class="nav-btn disabled">← Previous Product</span>`;
+                
+            const nextBtn = product.navigation && product.navigation.next
+                ? `<a href="product.html?slug=${product.navigation.next}" class="nav-btn">Next Product →</a>`
+                : `<span class="nav-btn disabled">Next Product →</span>`;
+            
+            // Build full HTML
+            container.innerHTML = `
+                <div class="product-grid">
+                    <div class="image-section">
+                        <img src="${mainImage}" alt="${product.name}" class="main-image" id="mainImage">
+                        ${thumbnailsHTML}
+                    </div>
+                    
+                    <div class="product-info">
+                        <h1>${product.name}</h1>
+                        <div class="specs">
+                            ${specsHTML}
+                        </div>
+                        ${descriptionHTML}
+                    </div>
+                </div>
+                
+                <div class="navigation">
+                    ${prevBtn}
+                    ${nextBtn}
+                </div>
+            `;
+            
+            // Update page title
+            document.title = `${product.name} - Sun Ceramic`;
+        }
+        
+        // Change main image
+        function changeImage(url, thumb) {
+            document.getElementById('mainImage').src = url;
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+    </script>
+</body>
+</html>

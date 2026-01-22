@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - SUN Exim India - Global Trade Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800&family=Mulish:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* =====================
+           CSS Variables
+           ===================== */
+        :root {
+            --primary-white: #ffffff;
+            --soft-gray: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-medium: #666666;
+            --text-light: #999999;
+            --accent-gold: #b8996f;
+            --accent-dark: #8b7355;
+            --accent-light: #d4c4a8;
+            --border-light: #e5e5e5;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* =====================
+           Reset & Base
+           ===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* =====================
+           Animation Keyframes
+           ===================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* =====================
+           Header Styles
+           ===================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.4s var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        .logo {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .logo-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 3px;
+            margin-bottom: 3px;
+            font-family: 'Playfair Display', serif;
+            transition: all 0.3s ease;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'Mulish', sans-serif;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: 'Mulish', sans-serif;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--primary-white);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            padding: 100px 30px 30px;
+            transition: right 0.4s var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px 0;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Mulish', sans-serif;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-gold);
+            padding-left: 12px;
+        }
+
+        /* =====================
+           Hero Section
+           ===================== */
+        .hero {
+            width: 100%;
+            height: 65vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://i.pinimg.com/1200x/c9/92/87/c99287fd489b918f49318aa3f76897ac.jpg') center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #ffffff;
+            z-index: 3;
+            position: relative;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        /* =====================
+           Main Content
+           ===================== */
+        .main-content {
+            min-height: 100vh;
+            background: var(--soft-gray);
+        }
+
+        .content-wrapper {
+            display: flex;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* =====================
+           Filter Sidebar
+           ===================== */
+        .filter-sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 32px 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            position: sticky;
+            top: 140px;
+            height: fit-content;
+            transition: all 0.3s ease;
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        .filter-section {
+            margin-bottom: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .filter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--text-dark);
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .filter-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .filter-section:hover .filter-title::after {
+            width: 70px;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: var(--soft-gray);
+            border: 1px solid var(--border-light);
+            color: var(--text-medium);
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.25s var(--transition-smooth);
+            letter-spacing: 0.3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(184, 153, 111, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-light);
+            background: rgba(184, 153, 111, 0.05);
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, rgba(184, 153, 111, 0.12), rgba(184, 153, 111, 0.08));
+            color: var(--accent-dark);
+            border-color: var(--accent-gold);
+            font-weight: 600;
+            padding-left: 24px;
+            box-shadow: 0 3px 10px rgba(184, 153, 111, 0.2);
+        }
+
+        .filter-btn.active::after {
+            content: '✓';
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* =====================
+           Content Area
+           ===================== */
+        .content-area {
+            flex: 1;
+            min-width: 0;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .gallery-section {
+            width: 100%;
+        }
+
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s var(--transition-smooth), 
+                        box-shadow 0.3s var(--transition-smooth),
+                        opacity 0.6s ease-out, 
+                        transform 0.6s ease-out;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0) !important;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin: 0;
+            margin: 0 0 6px 0;
+            color: #333;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .product-info p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            font-weight: 400;
+        }
+
+        /* =====================
+           Footer
+           ===================== */
+        .footer {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 80px 0 30px;
+            font-family: 'Mulish', sans-serif;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+            padding: 0 30px;
+        }
+
+        .footer-logo {
+            margin-bottom: 24px;
+        }
+
+        .footer-logo h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .footer-logo p {
+            font-size: 12px;
+            color: #999;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .footer-about p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(184, 153, 111, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .footer-heading {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 28px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 8px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            margin-top: 4px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            color: #aaa;
+            margin: 0;
+            line-height: 1.7;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .contact-info a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #c9a66b 0%, #d4b57f 100%);
+            color: #2c2416 !important;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 15px 10px 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(201, 166, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn i {
+            margin-right: 8px;
+            font-size: 12px;
+            color: #2c2416;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #d4b57f 0%, #ddc393 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 166, 107, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(201, 166, 107, 0.2);
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #777;
+            font-size: 13px;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .footer-bottom i {
+            color: var(--accent-gold);
+            margin: 0 3px;
+        }
+
+        /* =====================
+           Responsive Design
+           ===================== */
+        @media (max-width: 1400px) {
+            .products-grid {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                padding: 50px 20px;
+            }
+
+            .filter-sidebar {
+                width: 280px;
+            }
+
+            .products-grid {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+                z-index: 1002;
+            }
+
+            .header-content {
+                position: relative;
+                padding: 20px;
+            }
+
+            .logo {
+                margin-left: 40px;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 40px;
+            }
+
+            .filter-sidebar {
+                width: 100%;
+                position: static;
+                margin: 0;
+            }
+
+            .products-grid {
+                gap: 10px;
+            }
+
+            .hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                gap: 10px;
+            }
+
+            .product-card {
+                width: 160px;
+            }
+
+            .product-image {
+                height: 140px;
+            }
+            
+            .product-image img {
+                max-width: 85%;
+                max-height: 85%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                gap: 10px;
+            }
+
+            .product-card {
+                border-radius: 12px;
+            }
+
+            .product-details {
+                padding: 16px;
+            }
+
+            .product-title {
+                font-size: 16px;
+                min-height: 44px;
+            }
+
+            .spec {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-options {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-sidebar {
+                padding: 24px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .content-wrapper {
+                padding: 30px 16px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <!-- Mobile Toggle Button -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-title">SUN Exim</div>
+                <div class="logo-subtitle">India</div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav">
+                <a href="index.html" class="nav-link" style="animation: 0.5s ease-out forwards fadeIn; opacity: 0;">Home</a>
+                <a href="collection.html" class="nav-link" style="animation: 0.5s ease-out 0.1s forwards fadeIn; opacity: 0;">Collection</a>
+                <a href="About.html" class="nav-link" style="animation: 0.5s ease-out 0.2s forwards fadeIn; opacity: 0;">About</a>
+                <a href="catalogue.html" class="nav-link" style="animation: 0.5s ease-out 0.3s forwards fadeIn; opacity: 0;">Downloads</a>
+                <a href="#professional" class="nav-link" style="animation: 0.5s ease-out 0.4s forwards fadeIn; opacity: 0;">Professional</a>
+                <a href="contact.html" class="nav-link" style="animation: 0.5s ease-out 0.5s forwards fadeIn; opacity: 0;">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="catalogue.html">Downloads</a>
+        <a href="#professional">Professional</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Catalogue</h1>
+                <p>Discover excellence in every tile</p>
+            </div>
+        </section>
+
+        <section class="products-grid">
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1sOpX7wpEvsOGzvA04Eta3FcHOKX805tC&sz=w400" alt="3D Collection" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="product-info">
+                    <h3>3D Collection</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1sOpX7wpEvsOGzvA04Eta3FcHOKX805tC&usp=drive_copy" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="data:image/jpeg;base64,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" alt="BookMatch Collection">
+                </div>
+                <div class="product-info">
+                    <h3>BookMatch Collection</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1X9qNqVhq4eDrV7KadpFueKbje0nzmnrk&usp=drive_copy" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/9/341828702/PX/ZE/TK/40147289/glossy-3d-printed-stone-mural-500x500.jpg" alt="Carving & Glossy Decor">
+                </div>
+                <div class="product-info">
+                    <h3>Carving & Glossy Decor</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1xEDt-0FiT9CqSEoN43oE-tk_9OmCDfPy&usp=drive_copy" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2SD4ehD9OsSgsuyZPBS5gq_YOpEYfpqKfA&s" alt="Carving Vol 1">
+                </div>
+                <div class="product-info">
+                    <h3>Carving Vol 1</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1-nsDb-AY-t1rjGtk8iuGdHO0_dCgIOL-&usp=drive_copy" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1xM-uWHqSdvvyAfw_IkGBIdj_mVj11QH8" alt="Carving Vol 2">
+    </div>
+    <div class="product-info">
+        <h3>Carving Vol 2</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1xM-uWHqSdvvyAfw_IkGBIdj_mVj11QH8&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0fRbHF1RrrWowEXx3PIpLD4h20WEM13xrg&s" alt="Carving Vol 3">
+    </div>
+    <div class="product-info">
+        <h3>Carving Vol 3</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1xY3MSiJy2ot_JCRtXp1IjxJcoIS-oSmf&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://www.somanyceramics.com/static/images/colorato.jpg" alt="Colorato 1">
+    </div>
+    <div class="product-info">
+        <h3>Colorato 1</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1ErVUz4I3IqxGsslKLSd0Z5tv4f-bLq8i&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://www.somanyceramics.com/static/images/jodhpur-blues-03.jpg" alt="Colorato 2">
+    </div>
+    <div class="product-info">
+        <h3>Colorato 2</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1Umlk6kcz5eHZCgQ615WoSgcdZR7cz46O&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy5yQD5XXpzPjAghlgznIR4izWQ1_gw-fc_g&s" alt="Double Charge">
+    </div>
+    <div class="product-info">
+        <h3>Double Charge</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1Sf9KZqxnZ18MwI2EM1tmBcRbELdwJO4k&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://images.orientbell.com/media/catalog/product/c/a/carving_colour_endless_carara_line.jpg" alt="Endless Carving">
+    </div>
+    <div class="product-info">
+        <h3>Endless Carving</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1VxnKPoblaD5nmcyrS096I_6SVGBKpVrN&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://images.orientbell.com/media/catalog/product/c/a/carving_endless_silver_root_marble.jpg" alt="Endless">
+    </div>
+    <div class="product-info">
+        <h3>Endless</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1eSTZRuSOm0WvEvXJ3p3V9SS-s2GKo5kn&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://res.cloudinary.com/dcqre7nop/image/upload/v1768754888/c6605f59-86e9-4435-b9e4-ac5c11ddb832.png" alt="Glacier">
+    </div>
+    <div class="product-info">
+        <h3>Glacier</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1iy3gWdfIo-hafnls5ZF0dAp29Bc7nlWv&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1NqRqOWlMHJMgjsMxdqH_Q4DH-30MvKHM" alt="GLOCID">
+    </div>
+    <div class="product-info">
+        <h3>GLOCID</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1NqRqOWlMHJMgjsMxdqH_Q4DH-30MvKHM&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1A4GmL_aZy8J6eqO96Cw_je58EaRZUATO" alt="Glossy 1">
+    </div>
+    <div class="product-info">
+        <h3>Glossy 1</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1A4GmL_aZy8J6eqO96Cw_je58EaRZUATO&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1nYo_2-XfEWoCLHu0qi23OTiSs5sVgZVa" alt="Glossy 2">
+    </div>
+    <div class="product-info">
+        <h3>Glossy 2</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1nYo_2-XfEWoCLHu0qi23OTiSs5sVgZVa&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=10VsPWgPrfdw1I3IhKZLI96_ioGtJln3p" alt="Glossy 3">
+    </div>
+    <div class="product-info">
+        <h3>Glossy 3</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=10VsPWgPrfdw1I3IhKZLI96_ioGtJln3p&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=16iFx8PTaG-KuQjb4X7ht83QWnrmGl9tg" alt="Golden HG">
+    </div>
+    <div class="product-info">
+        <h3>Golden HG</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=16iFx8PTaG-KuQjb4X7ht83QWnrmGl9tg&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1iYBWhDhCiXYTdk7hnCsPYvrI4jFgOfuL" alt="Granite">
+    </div>
+    <div class="product-info">
+        <h3>Granite</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1iYBWhDhCiXYTdk7hnCsPYvrI4jFgOfuL&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=11nDd8yChOhxQRx58AaSj3hD31n_H4TUO" alt="High Glossy">
+    </div>
+    <div class="product-info">
+        <h3>High Glossy</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=11nDd8yChOhxQRx58AaSj3hD31n_H4TUO&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=15aR6umGhzVGKzYQ6c1OWe6TOEOpTuxPc" alt="Iris 1">
+    </div>
+    <div class="product-info">
+        <h3>Iris 1</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=15aR6umGhzVGKzYQ6c1OWe6TOEOpTuxPc&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1qW_ya7wM_heiuk-UNea46bEVsOBB1nka" alt="Iris 2">
+    </div>
+    <div class="product-info">
+        <h3>Iris 2</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1qW_ya7wM_heiuk-UNea46bEVsOBB1nka&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=13bl76YmurI52vB2x6Pwz874yV-1-xjhr" alt="Lapiz Black">
+    </div>
+    <div class="product-info">
+        <h3>Lapiz Black</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=13bl76YmurI52vB2x6Pwz874yV-1-xjhr&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1b_ffbwgNheyVSnZkI1NAa_siKjV2qjQ8" alt="Matt 1">
+    </div>
+    <div class="product-info">
+        <h3>Matt 1</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1b_ffbwgNheyVSnZkI1NAa_siKjV2qjQ8&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1BMV0-IidZGji1Jp6oWDfH5LDvfkVEAYu" alt="Matt 2">
+    </div>
+    <div class="product-info">
+        <h3>Matt 2</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1BMV0-IidZGji1Jp6oWDfH5LDvfkVEAYu&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1gtZRZbhZpjXuefVx9ibiVvNwALPWqut6" alt="Metallic">
+    </div>
+    <div class="product-info">
+        <h3>Metallic</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1gtZRZbhZpjXuefVx9ibiVvNwALPWqut6&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1E9MAa7Wxi-Av9B8BVUnQhHq1GGNzi6Yo" alt="Pantone">
+    </div>
+    <div class="product-info">
+        <h3>Pantone</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1E9MAa7Wxi-Av9B8BVUnQhHq1GGNzi6Yo&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=16LSJDrNpNNcqO1HwvlaLB-nXcBMVQ6vy" alt="Pastel Decor">
+    </div>
+    <div class="product-info">
+        <h3>Pastel Decor</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/file/d/16LSJDrNpNNcqO1HwvlaLB-nXcBMVQ6vy/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1AHZTIkfNbCeHux3vtFPW9RTv8V6HZaEw" alt="Pastel Glow">
+    </div>
+    <div class="product-info">
+        <h3>Pastel Glow</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1AHZTIkfNbCeHux3vtFPW9RTv8V6HZaEw&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1xd_kRh6KWSphKwZzlQ0A-YzHdng04Dl5" alt="Statuario">
+    </div>
+    <div class="product-info">
+        <h3>Statuario</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1xd_kRh6KWSphKwZzlQ0A-YzHdng04Dl5&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1alpq0jFfhwsxK-bMuJA5e2QmFMb9tP_N" alt="Sugar">
+    </div>
+    <div class="product-info">
+        <h3>Sugar</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1alpq0jFfhwsxK-bMuJA5e2QmFMb9tP_N&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1W766h3rkspQxt8CE3TUR9jwAzZ9oTBzx" alt="Super High Glossy Jazz">
+    </div>
+    <div class="product-info">
+        <h3>Super High Glossy Jazz</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1W766h3rkspQxt8CE3TUR9jwAzZ9oTBzx&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=14_lUr3NGp0q1AfJsie_hUoP_r7uHK6fv" alt="Super High Glossy">
+    </div>
+    <div class="product-info">
+        <h3>Super High Glossy</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=14_lUr3NGp0q1AfJsie_hUoP_r7uHK6fv&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=173p3N0oNqfHneEZSP4lmN0npNxu4ExrO" alt="Terallino Twill">
+    </div>
+    <div class="product-info">
+        <h3>Terallino Twill</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=173p3N0oNqfHneEZSP4lmN0npNxu4ExrO&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1BDxkDnknI6p_CZidvUp_bU_f-CUjxgti" alt="Terallino">
+    </div>
+    <div class="product-info">
+        <h3>Terallino</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1BDxkDnknI6p_CZidvUp_bU_f-CUjxgti&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1CGJvwBZxfNYQlVA_BB6GjjPYxsLY-U5K" alt="Terallino Cambric">
+    </div>
+    <div class="product-info">
+        <h3>Terallino Cambric</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1CGJvwBZxfNYQlVA_BB6GjjPYxsLY-U5K&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1-AuWhwROCONOAuJkKkiVgwq5UDbSW2y8" alt="Terallino Marmor">
+    </div>
+    <div class="product-info">
+        <h3>Terallino Marmor</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1-AuWhwROCONOAuJkKkiVgwq5UDbSW2y8&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1BRoqitsthAwxinQthmQOExOXPkV07-mW" alt="Terallino (Alt)">
+    </div>
+    <div class="product-info">
+        <h3>Terallino (Alt)</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1BRoqitsthAwxinQthmQOExOXPkV07-mW&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1y08W-G1GE0knZw8CIv1vyYjoaKA0UPUX" alt="GLOCID (Alt)">
+    </div>
+    <div class="product-info">
+        <h3>GLOCID (Alt)</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1y08W-G1GE0knZw8CIv1vyYjoaKA0UPUX&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1SjQ4O8mgpUv3xpPJENtbZyYCV0Pow_jP" alt="Golden HG (2)">
+    </div>
+    <div class="product-info">
+        <h3>Golden HG (2)</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1SjQ4O8mgpUv3xpPJENtbZyYCV0Pow_jP&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1oqS0W67QcT_6Cxw-GZvT4vx70ZYMBt_V" alt="Terallino Marmor (Alt)">
+    </div>
+    <div class="product-info">
+        <h3>Terallino Marmor (Alt)</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1oqS0W67QcT_6Cxw-GZvT4vx70ZYMBt_V&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1q3wCkjVBrEoWH4wL-dAtCq8lFeu7kTvy" alt="Super High Glossy (Alt)">
+    </div>
+    <div class="product-info">
+        <h3>Super High Glossy (Alt)</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/open?id=1q3wCkjVBrEoWH4wL-dAtCq8lFeu7kTvy&usp=drive_copy" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1ODfLVUYkzYV7udb1pRZ9IOcXByeYLY2k&sz=w400" alt="HG Cracker Marble">
+    </div>
+    <div class="product-info">
+        <h3>HG Cracker Marble</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1ODfLVUYkzYV7udb1pRZ9IOcXByeYLY2k/view?usp=drivesdk" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1ZN0_mNVyli5_gH87UpLfCbZfkpVLwMWz" alt="HG Cracker Decor">
+    </div>
+    <div class="product-info">
+        <h3>HG Cracker Decor</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1ZN0_mNVyli5_gH87UpLfCbZfkpVLwMWz/view?usp=drivesdk" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1Ecu4cefhCbR-oe3jx8TSrqiTv7nOkel8" alt="HG Cracker Gold">
+    </div>
+    <div class="product-info">
+        <h3>HG Cracker Gold</h3>
+        <p class="year">2023</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1Ecu4cefhCbR-oe3jx8TSrqiTv7nOkel8/view?usp=drivesdk" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download
+    </a>
+</article>
+<article class="product-card">
+    <div class="product-image">
+        <i class="fas fa-file-pdf" style="font-size: 80px; color: #e74c3c; margin: 30px 0;"></i>
+    </div>
+    <div class="product-info">
+        <h3>NEW CRAFT COLLECTION 2025</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1tPgOX5l7tPGmxNMt0aiOgaTx_KDbun4h/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1Uc2Z0PlvmvBDmZcOAnZOzLmmfELTkbCh&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>MATT 800X1600</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1Uc2Z0PlvmvBDmZcOAnZOzLmmfELTkbCh/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1L75nAgrOL5BKkTtAGR3vP2eqtPVIJqHk&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>1600X3200X15MM</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1L75nAgrOL5BKkTtAGR3vP2eqtPVIJqHk/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1fL_Pc73wyQtxnATyzy6hf5xJZ_leDkBY&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>POSS COLLECTION</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1fL_Pc73wyQtxnATyzy6hf5xJZ_leDkBY/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1J9RX9DRT-ezjGRXVSQlSPXSpkRanjtSN&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>GHR COLLECTION</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1J9RX9DRT-ezjGRXVSQlSPXSpkRanjtSN/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1FIE-038K9ytxmSDs5ut_lTn0Nv5k0QrF&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>BEBY SATIN COLLECTION</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1FIE-038K9ytxmSDs5ut_lTn0Nv5k0QrF/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1EdPfYWZ8oqzNF0N_gvudh3nErO4hwOkc&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>600X1200-MATT</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1EdPfYWZ8oqzNF0N_gvudh3nErO4hwOkc/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1UUoATGzEvAsalpWQHRgtlVEjo3BNrWri&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>VIBRANT 800X1600</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1UUoATGzEvAsalpWQHRgtlVEjo3BNrWri/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1rDgKFMZqIW11QOgpSRFXkFYfotZKUAKp&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>KOSMA 800X1600</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1rDgKFMZqIW11QOgpSRFXkFYfotZKUAKp/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=10w3uboUDYlto7zbEPuF-Th152xSKyCz2&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>ENDLESS 800x1600</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/10w3uboUDYlto7zbEPuF-Th152xSKyCz2/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1cOBN6g9CZGMjlrXJQFHJbBe24u4QdISF&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>TERAZZO & GRANITE</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1cOBN6g9CZGMjlrXJQFHJbBe24u4QdISF/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/thumbnail?id=1O5D6XOzghjPcvcoshe58zRKOfBuCN6F6&sz=w400" alt="PDF Collection">
+    </div>
+    <div class="product-info">
+        <h3>ELIGHT 800X1600</h3>
+        <p class="year">PDF Collection</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1O5D6XOzghjPcvcoshe58zRKOfBuCN6F6/view?usp=drive_link" target="_blank" class="download-btn">
+        <i class="fas fa-download"></i> Download PDF
+    </a>
+</article>
+<!-- New Glossy Collection -->
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1VyAooZaVfZLzNCjcfPF4ze43_6jDjGAX" alt="Glossy Collection">
+    </div>
+    <div class="product-info">
+        <h3>WL-1200X1800 GLOSSY COLLECTION</h3>
+        <p class="year">2024</p>
+    </div>
+    <div class="product-actions">
+        <a href="https://drive.google.com/file/d/1VyAooZaVfZLzNCjcfPF4ze43_6jDjGAX/view?usp=sharing" class="download-btn" target="_blank">View</a>
+    </div>
+</article>
+
+<!-- Glossy-Matt Collection -->
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1Xqlc-f9Dh-SNo4DNKicS-N-ueO304YNN" alt="Glossy-Matt Collection">
+    </div>
+    <div class="product-info">
+        <h3>1200X1200 GLOSSY-MATT COLLECTION</h3>
+        <p class="year">2024</p>
+    </div>
+    <div class="product-actions">
+        <a href="https://drive.google.com/file/d/1Xqlc-f9Dh-SNo4DNKicS-N-ueO304YNN/view?usp=sharing" class="download-btn" target="_blank">View</a>
+    </div>
+</article>
+
+<!-- Poshe Carving-Marble Collection -->
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1lnzZz9C7OMCxGKTVNO11N3LW-_fpIeJd" alt="Poshe Carving-Marble">
+    </div>
+    <div class="product-info">
+        <h3>WL-1200X1800 POSHE CARVING-MARBLE</h3>
+        <p class="year">2024</p>
+    </div>
+    <div class="product-actions">
+        <a href="https://drive.google.com/file/d/1lnzZz9C7OMCxGKTVNO11N3LW-_fpIeJd/view?usp=sharing" class="download-btn" target="_blank">View</a>
+    </div>
+</article>
+
+<!-- Diamond Series -->
+<article class="product-card">
+    <div class="product-image">
+        <img src="https://drive.google.com/uc?export=view&id=1pORA_t5o3ISOFplI254Ie_PxmTqTMwC3" alt="Diamond Series">
+    </div>
+    <div class="product-info">
+        <h3>WL-1200X1800 DIAMOND SERIES</h3>
+        <p class="year">2024</p>
+    </div>
+    <div class="product-actions">
+        <a href="https://drive.google.com/file/d/1pORA_t5o3ISOFplI254Ie_PxmTqTMwC3/view?usp=sharing" class="download-btn" target="_blank">View</a>
+    </div>
+</article>
+
+
+        </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <h2>SUN Exim</h2>
+                    <p>GLOBAL TRADING</p>
+                </div>
+                <p>Leading the way in global trade with excellence, integrity, and innovation. We connect markets and build lasting relationships through quality products and exceptional service.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#expertise">Our Expertise</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Our Products -->
+            <div class="footer-section">
+                <h3 class="footer-heading">Our Products</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Ceramic Tiles</a></li>
+                    <li><a href="#">Porcelain Tiles</a></li>
+                    <li><a href="#">Mosaic Tiles</a></li>
+                    <li><a href="#">Outdoor Tiles</a></li>
+                    <li><a href="#">Bathroom Tiles</a></li>
+                    <li><a href="#">Kitchen Tiles</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3 class="footer-heading">Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Bhadiyad Road, near science college<br>Bhadiyad, Morbi - 363642<br>Gujarat, India</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <p>+91 99099 40989</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:seatwell_vitreous@yahoo.com">seatwell_vitreous@yahoo.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 SUN Exim India. All Rights Reserved. | Designed with <i class="fas fa-heart"></i> by SUN Exim Team</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            const activeFilters = {
+                dimensions: null,
+                thickness: null,
+                finish: null
+            };
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterType = this.closest('.filter-options').id;
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Remove active class from all buttons in the same filter group
+                    const parentContainer = this.closest('.filter-options');
+                    parentContainer.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Toggle active class on clicked button
+                    const wasActive = this.classList.contains('active');
+                    this.classList.toggle('active');
+                    
+                    // Update active filters object
+                    if (filterType === 'dimensions-filter') {
+                        activeFilters.dimensions = wasActive ? null : filterValue;
+                    } else if (filterType === 'thickness-filter') {
+                        activeFilters.thickness = wasActive ? null : filterValue;
+                    } else if (filterType === 'finish-filter') {
+                        activeFilters.finish = wasActive ? null : filterValue;
+                    }
+                    
+                    // Filter products
+                    filterProducts();
+                });
+            });
+
+            function filterProducts() {
+                productCards.forEach(card => {
+                    const cardDimensions = card.getAttribute('data-dimensions');
+                    const cardThickness = card.getAttribute('data-thickness');
+                    const cardFinish = card.getAttribute('data-finish');
+                    
+                    let show = true;
+                    
+                    // Check each filter
+                    if (activeFilters.dimensions && cardDimensions !== activeFilters.dimensions) {
+                        show = false;
+                    }
+                    if (activeFilters.thickness && cardThickness !== activeFilters.thickness) {
+                        show = false;
+                    }
+                    if (activeFilters.finish && cardFinish !== activeFilters.finish) {
+                        show = false;
+                    }
+                    
+                    // Show or hide card with animation
+                    if (show) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+        });
+
+        // Header scroll effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerElement = document.getElementById('header');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            function updateHeader() {
+                if (window.scrollY > 10 || (mobileMenu && mobileMenu.classList.contains('active'))) {
+                    headerElement.classList.add('scrolled');
+                } else {
+                    headerElement.classList.remove('scrolled');
+                }
+            }
+            
+            updateHeader();
+            window.addEventListener('scroll', updateHeader);
+            
+            const mobileToggle = document.getElementById('mobileToggle');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    setTimeout(updateHeader, 10);
+                });
+            }
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const body = document.body;
+            const header = document.getElementById('header');
+
+            mobileToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+
+                if (mobileMenu.classList.contains('active')) {
+                    header.classList.add('scrolled');
+                } else if (window.scrollY <= 50) {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    mobileToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    body.style.overflow = '';
+
+                    if (window.scrollY <= 50) {
+                        header.classList.remove('scrolled');
+                    }
+                }
+            });
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            mobileToggle.classList.remove('active');
+                            mobileMenu.classList.remove('active');
+                            body.style.overflow = '';
+
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth > 992) {
+                        mobileToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        body.style.overflow = '';
+                    }
+                }, 250);
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Function to convert Google Drive URLs to thumbnail URLs
+        function getDriveThumbnail(url) {
+            // Return if not a Google Drive URL or already a thumbnail
+            if (!url.includes('drive.google.com') || url.includes('thumbnail')) return url;
+            
+            // Extract file ID from various Google Drive URL formats
+            let fileId = '';
+            
+            if (url.includes('file/d/')) {
+                // Format: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+                fileId = url.split('/d/')[1].split('/')[0].split('?')[0];
+            } else if (url.includes('open?')) {
+                // Format: https://drive.google.com/open?id=FILE_ID
+                const params = new URLSearchParams(url.split('?')[1]);
+                fileId = params.get('id');
+            } else if (url.includes('uc?')) {
+                // Format: https://drive.google.com/uc?export=view&id=FILE_ID
+                const params = new URLSearchParams(url.split('?')[1]);
+                fileId = params.get('id');
+            } else {
+                return url; // Return original if format not recognized
+            }
+            
+            // Return the thumbnail URL with w400 size
+            return `https://drive.google.com/thumbnail?id=${fileId}&sz=w400`;
+        }
+
+        // Update all Google Drive image sources on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[src*="drive.google.com"]');
+            images.forEach(img => {
+                img.src = getDriveThumbnail(img.src);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all product cards on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+</html>
