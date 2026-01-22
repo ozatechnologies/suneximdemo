@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
         /* Animation Keyframes */
         @keyframes fadeIn {
@@ -354,6 +355,7 @@
             height: 100vh;
             min-height: 700px;
             overflow: hidden;
+            perspective: 1000px;
         }
 
         .hero-slide-image {
@@ -364,6 +366,18 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            filter: brightness(0.9);
+            transform: scale(1.1);
+            transition: transform 0.7s ease-out, filter 0.7s ease-out;
+        }
+        
+        .swiper-slide-active .hero-slide-image {
+            filter: brightness(1) blur(0);
+            transform: scale(1);
+        }
+        
+        .swiper-slide:not(.swiper-slide-active) .hero-slide-image {
+            filter: brightness(0.7) blur(5px);
         }
 
         .swiper {
@@ -394,37 +408,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background:
-                linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0.6) 0%,
-                    rgba(0, 0, 0, 0.2) 50%,
-                    rgba(0, 0, 0, 0.3) 100%),
-                linear-gradient(to right,
-                    rgba(0, 0, 0, 0.3),
-                    rgba(0, 0, 0, 0.1)),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
-            mix-blend-mode: multiply;
-            z-index: 2;
-            /* Ensure it's above the image but below text */
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            backdrop-filter: blur(2px);
+            transition: all 0.7s ease-out;
+            opacity: 0.8;
         }
 
         .slide-content {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 90%;
-            max-width: 900px;
-            z-index: 10;
+            left: 10%;
+            transform: translateY(-50%) translateZ(50px);
+            color: white;
+            max-width: 600px;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.7s ease-out, opacity 0.7s ease-out;
             opacity: 0;
-            filter: blur(30px);
-            transition: all 1s ease 1.4s;
+            transform: translateY(-50%) translateZ(50px) translateX(-20px);
         }
-
+        
         .swiper-slide-active .slide-content {
             opacity: 1;
-            filter: blur(0);
+            transform: translateY(-50%) translateZ(0);
         }
 
         .slide-title {
@@ -1823,7 +1834,7 @@
                     <div class="slide-content">
                         <div class="slide-title">Luxury Porcelain Tiles</div>
                         <p class="slide-subtitle">Elegance Redefined for Modern Spaces</p>
-                        <a href="#porcelain" class="discover-btn">Explore Collection</a>
+                        <a href="collection.html" class="discover-btn">Explore Collection</a>
                     </div>
                 </div>
 
@@ -1835,7 +1846,7 @@
                     <div class="slide-content">
                         <div class="slide-title">Premium Ceramic Tiles</div>
                         <p class="slide-subtitle">Durability Meets Stunning Design</p>
-                        <a href="#ceramic" class="discover-btn">View Products</a>
+                        <a href="collection.html" class="discover-btn">View Products</a>
                     </div>
                 </div>
 
@@ -1847,7 +1858,7 @@
                     <div class="slide-content">
                         <div class="slide-title">Exquisite Mosaic Tiles</div>
                         <p class="slide-subtitle">Artistic Patterns for Unique Spaces</p>
-                        <a href="#mosaic" class="discover-btn">Discover Designs</a>
+                        <a href="collection.html" class="discover-btn">Discover Designs</a>
                     </div>
                 </div>
 
@@ -1859,7 +1870,7 @@
                     <div class="slide-content">
                         <div class="slide-title">Outdoor & Patio Tiles</div>
                         <p class="slide-subtitle">Weather-Resistant & Stylish Solutions</p>
-                        <a href="#outdoor" class="discover-btn">View Outdoor Range</a>
+                        <a href="collection.html" class="discover-btn">View Outdoor Range</a>
                     </div>
                 </div>
             </div>
@@ -1913,13 +1924,15 @@
         <div class="watermark">SUN</div>
         <div class="container">
             <div class="about-grid" data-animate="fade">
-                <div class="about-image-wrapper">
+                <div class="about-image-wrapper" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); max-width: 100%; margin: 0 auto; background: #f5f5f5;">
                     <img src="https://res.cloudinary.com/dcqre7nop/image/upload/v1768108204/SUN_doc09c.png"
-                        alt="SUN Exim Office" class="about-image" loading="lazy"
-                        style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                         alt="SUN Exim Office" 
+                         class="about-image" 
+                         loading="eager"
+                         style="width: 100%; height: auto; display: block;">
                     <div class="experience-badge">
                         <div class="badge-content">
-                            <div class="badge-number">5+</div>
+                            <div class="badge-number">15+</div>
                             <span class="badge-label">YEARS</span>
                         </div>
                         <svg class="rotating-text" viewBox="0 0 200 200">
@@ -1950,7 +1963,7 @@
                             ensure every tile meets the highest standards of quality and durability for our global
                             clientele.</p>
                     </div>
-                    <a href="#" class="know-more-btn">
+                    <a href="about.html" class="know-more-btn">
                         <span>Know More</span>
                         <span style="margin-left: 10px; transition: transform 0.3s ease;">→</span>
                     </a>
@@ -2316,12 +2329,57 @@
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="section-header" style="text-align: center; margin-bottom: 60px;">
                 <h2 class="section-title"
-                    style="font-family: 'Playfair Display', serif; font-size: 42px; color: #1a1a1a; margin: 0 auto 20px; display: inline-block; position: relative;">
-                    <span style="position: relative; z-index: 1; padding: 0 20px; background: #f9f9f9;">Our Premium
-                        Collections</span>
-                    <span
-                        style="position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(184, 153, 111, 0.2); z-index: -1;"></span>
-                </h2>
+    style="font-family: 'Playfair Display', serif; 
+           font-size: 3.2rem;
+           font-weight: 600;
+           color: #1a1a1a;
+           margin: 0 auto 1.5rem;
+           display: inline-block;
+           position: relative;
+           text-align: center;
+           letter-spacing: 1px;
+           line-height: 1.2;
+           text-transform: none;">
+    <span style="position: relative; 
+                display: inline-block;
+                padding-bottom: 1.5rem;
+                font-size: 3.5rem;
+                font-weight: 700;
+                color: #1a1a1a;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+                letter-spacing: -0.5px;
+                line-height: 1.1;
+                margin-bottom: 1.5rem;">
+        <span style="display: inline-block; position: relative; overflow: hidden;">
+            <span style="display: inline-block; animation: wipeUp 1.2s ease-out forwards;">
+                Our <span style="font-style: italic; color: #c9a86a;">Premium</span> Collections
+            </span>
+        </span>
+        <style>
+            @keyframes wipeUp {
+                0% {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        </style>
+        <span style="position: absolute;
+                    bottom: 0.5rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 80px;
+                    height: 3px;
+                    background: #b8996f;
+                    display: block;
+                    border-radius: 2px;
+                    box-shadow: 0 2px 8px rgba(184, 153, 111, 0.3);">
+        </span>
+    </span>
+</h2>
                 <p class="section-subtitle"
                     style="font-size: 18px; color: #666; max-width: 700px; margin: 0 auto; font-style: italic; line-height: 1.6;">
                     Explore our exclusive tile collections that redefine elegance and durability
@@ -2336,14 +2394,6 @@
             </div>
             <div class="right-slide">
                 <!-- Images will be populated by JavaScript -->
-            </div>
-            <div class="action-buttons">
-                <button class="down-button">
-                    <i class="fas fa-arrow-down"></i>
-                </button>
-                <button class="up-button">
-                    <i class="fas fa-arrow-up"></i>
-                </button>
             </div>
         </div>
 
@@ -2675,22 +2725,22 @@
             const collections = [
                 {
                     title: 'Luxury Marble Collection',
-                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                    image: 'https://images.unsplash.com/photo-1600585154526-990dced4b1ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                    description: 'Experience the timeless elegance of natural marble with our premium collection, offering sophisticated patterns and luxurious finishes that elevate any space.',
+                    image: 'https://elegantmarbles.com/cdn/shop/products/imported-marble-les-quatre-saisons-elegant-marbles-ltd-36650105471197_720x.jpg?v=1645166177'
                 },
                 {
                     title: 'Wooden Tiles Series',
-                    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                    image: 'https://images.unsplash.com/photo-1600585154340-b0416eeae21d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                    description: 'Bring the warmth of natural wood into your home with our durable and versatile wooden tiles, perfect for creating cozy and inviting interiors.',
+                    image: 'https://www.kajariaceramics.com/storage/concept-picture/E00000000752.jpg'
                 },
                 {
                     title: 'Modern Concrete Tiles',
-                    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                    description: 'Achieve an industrial yet sophisticated look with our modern concrete tiles, offering a perfect blend of durability and contemporary design.',
                     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
                 },
                 {
                     title: 'Patterned Tile Designs',
-                    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    description: 'Make a bold statement with our exquisite patterned tiles, featuring intricate designs that add character and personality to any room.',
                     image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
                 }
             ];
@@ -2703,7 +2753,8 @@
                 const downButton = document.querySelector('.down-button');
                 let currentSlide = 0;
                 let isAnimating = false;
-                const slideDuration = 5000; // 5 seconds per slide
+                const slideDuration = 4000; // 5 seconds per slide
+                let slideInterval;
 
                 // Populate slides
                 collections.forEach((collection, index) => {
@@ -2722,10 +2773,10 @@
                             opacity: ${index === 0 ? 1 : 0};
                             transition: opacity 1s ease-in-out;
                         ">
-                            <h1 style="color: #1a1a1a; margin: 0 0 20px 0; font-size: 2em; font-family: 'Playfair Display', serif;">
+                            <h1 style="color: #1a1a1a; margin: 0 0 20px 0; font-size: 2em; font-family: 'Playfair Display', serif; font-weight: 600; text-shadow: none; letter-spacing: 0.5px; line-height: 1.3;">
                                 ${collection.title}
                             </h1>
-                            <p style="color: #666; margin: 0 0 25px 0; line-height: 1.6; font-size: 1em;">
+                            <p style="color: #666; margin: 0 0 25px 0; line-height: 1.6; font-size: 1em; text-shadow: none; font-family: 'Poppins', sans-serif; letter-spacing: 0.3px;">
                                 ${collection.description}
                             </p>
                             <a href="#" style="
@@ -2775,55 +2826,7 @@
                 rightSlide.style.width = '100%';
                 rightSlide.style.height = '100%';
 
-                // Button click handlers with debounce
-                const debounce = (func, delay) => {
-                    let timeoutId;
-                    return function () {
-                        if (timeoutId) clearTimeout(timeoutId);
-                        timeoutId = setTimeout(() => func.apply(this, arguments), delay);
-                    };
-                };
-
-                const handleUpClick = debounce(() => changeSlide('up'), 1000);
-                const handleDownClick = debounce(() => changeSlide('down'), 1000);
-
-                upButton.addEventListener('click', handleUpClick);
-                downButton.addEventListener('click', handleDownClick);
-
-                // Handle keyboard navigation
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowUp') {
-                        e.preventDefault();
-                        handleUpClick();
-                    } else if (e.key === 'ArrowDown') {
-                        e.preventDefault();
-                        handleDownClick();
-                    }
-                });
-
-                // Touch support for mobile
-                let touchStartY = 0;
-                let touchEndY = 0;
-
-                document.querySelector('.slider-container').addEventListener('touchstart', e => {
-                    touchStartY = e.changedTouches[0].screenY;
-                }, false);
-
-                document.querySelector('.slider-container').addEventListener('touchend', e => {
-                    touchEndY = e.changedTouches[0].screenY;
-                    handleSwipe();
-                }, false);
-
-                function handleSwipe() {
-                    if (touchStartY - touchEndY > 50) {
-                        // Swipe up
-                        handleDownClick();
-                    } else if (touchEndY - touchStartY > 50) {
-                        // Swipe down
-                        handleUpClick();
-                    }
-                }
-
+                // Function to change slide
                 function changeSlide(direction) {
                     if (isAnimating) return;
                     isAnimating = true;
@@ -2855,7 +2858,12 @@
                 }
 
                 // Auto-rotate slides
-                let slideInterval = setInterval(() => changeSlide('up'), slideDuration);
+                function startAutoRotate() {
+                    slideInterval = setInterval(() => changeSlide('up'), slideDuration);
+                }
+
+                // Start auto-rotation
+                startAutoRotate();
 
                 // Pause auto-rotate on hover
                 const sliderContainer = document.querySelector('.slider-container');
@@ -2919,7 +2927,6 @@
         </script>
     </section>
 
-    }
     </style>
 
     <script>
@@ -2968,7 +2975,7 @@
             effect: 'slide',
             speed: 2000,
             autoplay: {
-                delay: 5000,
+                delay: 4000,
                 disableOnInteraction: false,
             },
             navigation: {
@@ -3048,6 +3055,7 @@
             });
         });
     </script>
+    <script src="../script.js"></script>
 </body>
 
 </html>
@@ -3215,35 +3223,34 @@
     }
 </style>
 
-<!-- Contact Us Section -->
-<section class="contact-section">
-    <div class="contact-container">
-        <div class="contact-bg-text">SUN Exim</div>
-        <div class="contact-content">
-            <div class="contact-icon">
-                <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle pulse" viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg" style="animation: pulse 2s infinite;">
-                    <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
-                </svg>
-                <span class="fade-in-up" style="display: inline-block; animation: fadeInUp 0.8s ease-out;">Get A
-                    Quote</span>
+<!-- Contact Us Section (EXACT COPY FROM INDEX) -->
+    <section class="contact-section" style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://img.freepik.com/free-photo/3d-house-model-with-modern-architecture_23-2151004062.jpg') center/cover no-repeat;">
+        <div class="contact-container">
+            <div class="contact-bg-text">SUN Exim</div>
+            <div class="contact-content">
+                <div class="contact-icon">
+                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle pulse" viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg" style="animation: pulse 2s infinite;">
+                        <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
+                    </svg>
+                    <span class="fade-in-up" style="display: inline-block; animation: fadeInUp 0.8s ease-out;">Let's Create Together</span>
+                </div>
+                <h2 class="contact-title fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+                    <span style="color: #ffffff;">Transform Your Space</span> <span style="color: #ffffff;"> With </span> <span class="highlight-text"
+                        style="color: #b8996f; position: relative; display: inline-block;">Premium</span><span style="color: #ffffff;"> Tiles </span>
+                </h2>
+                <p class="contact-description fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.4s both;">
+                    Discover our exclusive collection of high-quality tiles that combine elegance, durability, and innovative design to bring your vision to life.
+                </p>
+                <a href="contact.html" class="contact-button">
+                    <span class="button-content">
+                        <i class="fas fa-palette"></i>
+                        <span class="button-text">Inquire Now</span>
+                    </span>
+                </a>
             </div>
-            <h2 class="contact-title fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.2s both;">Your Dream Space
-                <span class="highlight-text"
-                    style="color: #b8996f; position: relative; display: inline-block;">Deserves</span> the Perfect Tiles
-            </h2>
-            <p class="contact-description fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.4s both;">From
-                contemporary designs to timeless classics, SUN Exim delivers tiles that inspire and transform spaces.
-            </p>
-            <a href="#contact" class="contact-button">
-                <span class="button-content">
-                    <i class="fas fa-arrow-right"></i>
-                    <span class="button-text">Inquire Now</span>
-                </span>
-            </a>
         </div>
-    </div>
-</section>
+    </section>
 
 <style>
     /* Contact Section Styles */
@@ -3437,15 +3444,15 @@
             <ul class="contact-info">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>123 Trade Center, Business District<br>Mumbai, Maharashtra 400001<br>India</p>
+                    <p>Bhadiyad Road, near science college<br>Bhadiyad, Morbi - 363642<br>Gujarat, India</p>
                 </li>
                 <li>
                     <i class="fas fa-phone"></i>
-                    <p>+91 98765 43210<br>+91 22 1234 5678</p>
+                    <p>+91 99099 40989</p>
                 </li>
                 <li>
                     <i class="fas fa-envelope"></i>
-                    <p>info@sunexim.com<br>support@sunexim.com</p>
+                    <p><a href="mailto:seatwell_vitreous@yahoo.com">seatwell_vitreous@yahoo.com</a></p>
                 </li>
             </ul>
         </div>
